@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Shield, TrendingUp, Zap, Target, Award, Users } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import './Home.css';
+import heroBg from "../assets/hero-bg.png";
 
 /* ── Animated Counter Hook ── */
 function useCounter(end: number, duration = 2000) {
@@ -19,13 +20,6 @@ function useCounter(end: number, duration = 2000) {
     }, [end, duration]);
     return ref;
 }
-
-const stats = [
-    { value: 50, suffix: '+', label: 'Facilities Managed' },
-    { value: 98, suffix: '%', label: 'Client Retention' },
-    { value: 10, suffix: '+', label: 'Years Experience' },
-    { value: 500, suffix: '+', label: 'Trained Staff' },
-];
 
 const services = [
     { icon: <Shield size={28} strokeWidth={1.5} />, title: 'Facility Management', desc: 'End-to-end operational control. SOPs, compliance, audits — all managed for you.' },
@@ -88,8 +82,24 @@ const Home: React.FC = () => {
 
             {/* ══════════════════════════════
           HERO — KINETIC FULL FRAME
-      ══════════════════════════════ */}
-            <section className="hero" id="top">
+            ══════════════════════════════ */}
+            <section
+                className="hero"
+                id="top"
+                style={{
+                    backgroundImage: `url(${heroBg})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat"
+                }}
+            >
+                <div
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "rgba(0,0,0,0.5)" // adjust opacity here
+                    }}
+                />
                 {/* Layered backgrounds */}
                 <div className="hero__bg" aria-hidden="true">
                     <div className="hero__bg-radial" />
@@ -147,81 +157,6 @@ const Home: React.FC = () => {
                             </Link>
                         </div>
                     </Reveal>
-
-                    {/* Stats Strip */}
-                    <Reveal delay={0.46}>
-                        <div className="hero__stats">
-                            {stats.map((s, i) => (
-                                <div className="hero__stat" key={i}>
-                                    <div className="hero__stat-value">
-                                        <span ref={statRefs[i]}>0+</span>
-                                        {s.suffix === '%' && <span className="hero__stat-suffix">%</span>}
-                                    </div>
-                                    <div className="hero__stat-label">{s.label}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </Reveal>
-                </div>
-
-                <a href="#services" className="hero__scroll-hint" aria-label="Scroll down">
-                    <span className="hero__scroll-label">SCROLL</span>
-                    <ChevronDown size={18} className="hero__scroll-arrow" />
-                </a>
-            </section>
-
-            {/* ══════════════════════════════
-          MARQUEE TICKER
-      ══════════════════════════════ */}
-            <div className="marquee-strip" aria-hidden="true">
-                <div className="marquee-track">
-                    {['FACILITY MANAGEMENT', 'PREVENTIVE MAINTENANCE', 'TRAINED STAFF', 'AUDIT-LED OPERATIONS', 'MEMBER EXPERIENCE', 'ZERO DOWNTIME', 'PERFORMANCE REPORTING', 'TRANSPARENT PRICING'].map((t, i) => (
-                        <span key={i} className="marquee-item">
-                            <DumbbellSVG className="marquee-icon" />
-                            {t}
-                        </span>
-                    ))}
-                    {/* Duplicate for seamless loop */}
-                    {['FACILITY MANAGEMENT', 'PREVENTIVE MAINTENANCE', 'TRAINED STAFF', 'AUDIT-LED OPERATIONS', 'MEMBER EXPERIENCE', 'ZERO DOWNTIME', 'PERFORMANCE REPORTING', 'TRANSPARENT PRICING'].map((t, i) => (
-                        <span key={'b' + i} className="marquee-item" aria-hidden="true">
-                            <DumbbellSVG className="marquee-icon" />
-                            {t}
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-            {/* ══════════════════════════════
-          SERVICES GRID
-      ══════════════════════════════ */}
-            <section className="services-section" id="services">
-                <div className="services-section__bg" aria-hidden="true" />
-                <div className="container">
-                    <div className="services-section__header">
-                        <Reveal>
-                            <span className="section-label">What We Do</span>
-                        </Reveal>
-                        <Reveal delay={0.1}>
-                            <h2 className="section-title">
-                                Six Ways We Help<br />
-                                <span className="text-gradient">Your Facility Win.</span>
-                            </h2>
-                        </Reveal>
-                    </div>
-
-                    <div className="services-grid">
-                        {services.map((s, i) => (
-                            <FadeIn key={i} delay={i * 0.08}>
-                                <div className="service-card">
-                                    <div className="service-card__number">0{i + 1}</div>
-                                    <div className="service-card__icon">{s.icon}</div>
-                                    <h3 className="service-card__title">{s.title}</h3>
-                                    <p className="service-card__desc">{s.desc}</p>
-                                    <div className="service-card__bar" />
-                                </div>
-                            </FadeIn>
-                        ))}
-                    </div>
                 </div>
             </section>
 
