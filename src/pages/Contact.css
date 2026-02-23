@@ -1,0 +1,125 @@
+.contact-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80');
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+@media (max-width: 991px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+.info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.info-card {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: var(--transition-normal);
+}
+
+.info-card:hover {
+    background: rgba(227, 24, 55, 0.05);
+}
+
+.info-card h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    color: var(--color-gray-500);
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: var(--color-white);
+    font-weight: 500;
+}
+
+.social-box h4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Form Styling */
+.contact-form-container {
+    padding: 4rem;
+}
+
+@media (max-width: 576px) {
+    .contact-form-container {
+        padding: 2rem 1.5rem;
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 576px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-gray-400);
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    padding: 1rem;
+    color: var(--color-white);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition-normal);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.error {
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+select option {
+    background: var(--color-black);
+}

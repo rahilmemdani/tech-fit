@@ -1,0 +1,83 @@
+.pricing-page .page-header.black-gradient {
+    background: linear-gradient(to bottom, #000, #150505);
+}
+
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.model-card {
+    padding: 3rem;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+}
+
+.model-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(227, 24, 55, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.model-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.model-card p {
+    color: var(--color-gray-400);
+}
+
+.custom-model {
+    padding: 4rem;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(227, 24, 55, 0.05) 0%, transparent 100%);
+}
+
+.custom-model h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.custom-model p {
+    margin-bottom: 2rem;
+    color: var(--color-gray-400);
+    font-size: 1.1rem;
+}
+
+/* Transparency */
+.transparency-box {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.transparency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.trans-item h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+}
+
+.trans-item p {
+    color: var(--color-gray-500);
+    line-height: 1.6;
+}
+
+.trans-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
