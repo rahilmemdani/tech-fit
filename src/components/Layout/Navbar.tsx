@@ -6,6 +6,8 @@ import './Navbar.css';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -20,10 +22,27 @@ const Navbar: React.FC = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Update background state
+      setScrolled(currentScrollY > 40);
+
+      // Hide/Show logic
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past threshold
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     setIsOpen(false);
@@ -36,7 +55,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${!isVisible ? 'navbar--hidden' : ''}`}>
         <div className="container nav-content">
           {/* Logo */}
           <Link to="/" className="nav-logo" aria-label="Techfit Active Home">
@@ -111,7 +130,7 @@ const Navbar: React.FC = () => {
               className={`mobile-link ${location.pathname === link.path ? 'mobile-link--active' : ''}`}
               style={{ '--i': i } as React.CSSProperties}
             >
-              <span className="mobile-link__index">0{i + 1}</span>
+              {/* <span className="mobile-link__index">0{i + 1}</span> */}
               <span className="mobile-link__name">{link.name}</span>
             </Link>
           ))}

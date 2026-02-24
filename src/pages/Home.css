@@ -688,18 +688,58 @@
     background: var(--color-black);
 }
 
+.promise-container {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.promise-left {
+    flex: 0 0 400px;
+    position: sticky;
+    top: 15vh;
+}
+
 .promise-header {
-    margin-bottom: 3.5rem;
-    max-width: 500px;
+    margin-bottom: 0;
+}
+
+.promise-desc {
+    font-size: 1.1rem;
+    color: var(--color-white-muted);
+    line-height: 1.8;
+    margin-top: 1.5rem;
+}
+
+.promise-right {
+    flex: 1;
+    min-width: 0;
+    /* Important for flex child with overflow */
+}
+
+.promise-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem 0 3rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
+}
+
+.promise-carousel::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
 }
 
 .promise-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: none;
+    /* Removed in favor of carousel */
 }
 
 .promise-card {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
     position: relative;
     padding: 3rem 2rem 2.5rem;
     border: 1px solid var(--glass-border);
@@ -707,6 +747,36 @@
     background: var(--gradient-card);
     transition: var(--transition-normal);
     overflow: hidden;
+}
+
+.carousel-nav-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-top: -1rem;
+}
+
+@media (max-width: 1024px) {
+    .promise-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .promise-left {
+        flex: none;
+        position: static;
+        max-width: 500px;
+    }
+
+    .promise-card {
+        flex: 0 0 280px;
+    }
 }
 
 .promise-card:hover {

@@ -210,45 +210,59 @@ const Home: React.FC = () => {
           PROMISE SECTION 3 COLUMNS
       ══════════════════════════════ */}
             <section className="promise-section">
-                <div className="container">
-                    <div className="promise-header">
-                        <Reveal>
-                            <span className="section-label">Our Guarantee</span>
-                        </Reveal>
+                <div className="container promise-container">
+                    <div className="promise-left">
+                        <div className="promise-header">
+                            <Reveal>
+                                <span className="section-label">Our Guarantee</span>
+                            </Reveal>
 
-                        <Reveal delay={0.1}>
-                            <h2 className="section-title">
-                                The Techfit <span className="text-gradient">Standard.</span>
-                            </h2>
-                        </Reveal>
+                            <Reveal delay={0.1}>
+                                <h2 className="section-title">
+                                    The Techfit <span className="text-gradient">Standard.</span>
+                                </h2>
+                            </Reveal>
+
+                            <Reveal delay={0.2}>
+                                <p className="promise-desc">
+                                    Engineering reliability into every square foot. We manage facilities with clinical precision and absolute fiscal transparency.
+                                </p>
+                            </Reveal>
+                        </div>
                     </div>
 
-                    <div className="promise-grid">
-                        {[
-                            {
-                                eq: <KettlebellSVG className="promise-card__svg" />,
-                                title: "No Revenue Sharing",
-                                body: "Your revenue belongs to you. We charge a clear management fee and nothing else.",
-                            },
-                            {
-                                eq: <BarbellSVG className="promise-card__svg promise-card__svg--barbell" />,
-                                title: "No Hidden Commissions",
-                                body: "Vendor relationships are conflict-free. Every recommendation is in your best interest.",
-                            },
-                            {
-                                eq: <WeightPlateSVG className="promise-card__svg promise-card__svg--plate" />,
-                                title: "Full Transparency",
-                                body: "Monthly performance reports with audit scores, uptime stats, and member satisfaction data.",
-                            },
-                        ].map((p, i) => (
-                            <FadeIn key={i} delay={i * 0.15}>
-                                <div className="promise-card">
-                                    <div className="promise-card__visual">{p.eq}</div>
-                                    <h3 className="promise-card__title">{p.title}</h3>
-                                    <p className="promise-card__body">{p.body}</p>
-                                </div>
-                            </FadeIn>
-                        ))}
+                    <div className="promise-right">
+                        <div className="promise-carousel">
+                            {[
+                                {
+                                    eq: <KettlebellSVG className="promise-card__svg" />,
+                                    title: "No Revenue Sharing",
+                                    body: "Your revenue belongs to you. We charge a clear management fee and nothing else.",
+                                },
+                                {
+                                    eq: <BarbellSVG className="promise-card__svg promise-card__svg--barbell" />,
+                                    title: "No Hidden Commissions",
+                                    body: "Vendor relationships are conflict-free. Every recommendation is in your best interest.",
+                                },
+                                {
+                                    eq: <WeightPlateSVG className="promise-card__svg promise-card__svg--plate" />,
+                                    title: "Full Transparency",
+                                    body: "Monthly performance reports with audit scores, uptime stats, and member satisfaction data.",
+                                },
+                            ].map((p, i) => (
+                                <FadeIn key={i} delay={i * 0.15}>
+                                    <div className="promise-card">
+                                        <div className="promise-card__visual">{p.eq}</div>
+                                        <h3 className="promise-card__title">{p.title}</h3>
+                                        <p className="promise-card__body">{p.body}</p>
+                                    </div>
+                                </FadeIn>
+                            ))}
+                        </div>
+
+                        {/* <div className="carousel-nav-hint">
+                            <ArrowRight size={16} /> Swipe to explore
+                        </div> */}
                     </div>
                 </div>
             </section>
