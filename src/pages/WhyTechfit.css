@@ -80,79 +80,94 @@
     color: var(--color-white);
 }
 
-/* ─── PILLAR CARDS ─── */
-.why-pillars__grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+/* ─── PILLAR CAROUSEL ─── */
+.wp-carousel {
+    display: flex;
+    align-items: center;
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
+.wp-carousel__stage {
+    flex: 1;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.wp-carousel__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.wp-carousel__btn:hover {
+    border-color: var(--color-primary);
+    background: rgba(232, 23, 42, 0.1);
+    color: var(--color-primary);
+}
+
+.wp-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
 .wp-card {
-    padding: 1.8rem 1.4rem;
+    padding: 2.5rem 2rem;
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-lg);
     transition: var(--transition-normal);
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-
-.wp-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--glass-border-active);
-    box-shadow: var(--shadow-red-sm);
-}
-
-.wp-card__num {
-    position: absolute;
-    top: 0.8rem;
-    right: 1rem;
-    font-family: var(--font-display);
-    font-size: 3rem;
-    font-weight: 900;
-    color: rgba(232, 23, 42, 0.07);
-    line-height: 1;
-    letter-spacing: -0.05em;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 .wp-card__icon {
-    width: 44px;
-    height: 44px;
+    width: 56px;
+    height: 56px;
     background: rgba(232, 23, 42, 0.1);
     color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-md);
-    margin-bottom: 1rem;
-    transition: var(--transition-normal);
-}
-
-.wp-card:hover .wp-card__icon {
-    background: var(--color-primary);
-    color: var(--color-white);
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(232, 23, 42, 0.15);
 }
 
 .wp-card h3 {
     font-family: var(--font-display);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 800;
     letter-spacing: -0.01em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     color: var(--color-white);
 }
 
 .wp-card p {
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     color: var(--color-white-muted);
-    flex: 1;
+    max-width: 400px;
 }
 
 .wp-card__bar {
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     width: 30px;
     height: 2px;
     background: var(--gradient-red);
@@ -525,10 +540,6 @@
    RESPONSIVE
    ═══════════════════════════════════════════ */
 @media (max-width: 1100px) {
-    .why-pillars__grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
     .mis-layout {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -540,21 +551,9 @@
 }
 
 @media (max-width: 768px) {
-    .why-pillars__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contrast-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .contrast-image {
-        width: 100%;
-        max-height: 250px;
-    }
-
-    .contrast-image img {
-        aspect-ratio: 16/7;
+    .wp-carousel__btn {
+        width: 36px;
+        height: 36px;
     }
 
     .contrast-row {
@@ -585,8 +584,8 @@
         font-size: clamp(2.2rem, 10vw, 3rem);
     }
 
-    .why-pillars__grid {
-        grid-template-columns: 1fr;
+    .wp-carousel__stage {
+        min-height: 160px;
     }
 
     .contrast-wrong,

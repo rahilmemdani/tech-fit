@@ -74,6 +74,7 @@ const useAutoCarousel = (length: number, interval = 4000) => {
 /* ─── COMPONENT ─── */
 const WhyTechfit: React.FC = () => {
     const misCarousel = useAutoCarousel(misSlides.length, 4000);
+    const pillarCarousel = useAutoCarousel(whyPillars.length, 5000);
 
     return (
         <div className="why-page">
@@ -106,23 +107,45 @@ const WhyTechfit: React.FC = () => {
                 </div>
             </section>
 
-            {/* ══════════ PILLARS GRID ══════════ */}
+            {/* ══════════ PILLARS CAROUSEL ══════════ */}
             <section className="why-pillars section-padding ambient-glow">
                 <div className="container">
                     <Reveal>
                         <span className="section-label">What Sets Us Apart</span>
                     </Reveal>
-                    <div className="why-pillars__grid">
-                        {whyPillars.map((p, i) => (
-                            <FadeIn key={i} delay={0.08 * i}>
-                                <div className="wp-card glass-card">
-                                    <div className="wp-card__num">0{i + 1}</div>
-                                    <div className="wp-card__icon">{p.icon}</div>
-                                    <h3>{p.title}</h3>
-                                    <p>{p.desc}</p>
+                    <div className="wp-carousel">
+                        <button className="wp-carousel__btn wp-carousel__btn--left" onClick={pillarCarousel.prev} aria-label="Previous">
+                            <ChevronLeft size={20} />
+                        </button>
+                        <div className="wp-carousel__stage">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={pillarCarousel.active}
+                                    className="wp-card glass-card"
+                                    initial={{ opacity: 0, x: 60 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -60 }}
+                                    transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                                >
+                                    <div className="wp-card__icon">{whyPillars[pillarCarousel.active].icon}</div>
+                                    <h3>{whyPillars[pillarCarousel.active].title}</h3>
+                                    <p>{whyPillars[pillarCarousel.active].desc}</p>
                                     <div className="wp-card__bar" />
-                                </div>
-                            </FadeIn>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                        <button className="wp-carousel__btn wp-carousel__btn--right" onClick={pillarCarousel.next} aria-label="Next">
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+                    <div className="wp-dots">
+                        {whyPillars.map((_, i) => (
+                            <button
+                                key={i}
+                                className={`mc-dot ${pillarCarousel.active === i ? 'mc-dot--active' : ''}`}
+                                onClick={() => pillarCarousel.setActive(i)}
+                                aria-label={`Pillar ${i + 1}`}
+                            />
                         ))}
                     </div>
                 </div>
