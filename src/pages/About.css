@@ -176,9 +176,9 @@
 }
 
 .problem-carousel__btn:hover {
-    border-color: #f59e0b;
-    background: rgba(245, 158, 11, 0.1);
-    color: #f59e0b;
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-white);
 }
 
 .problem-carousel__stage {
@@ -204,8 +204,8 @@
 .problem-card__icon {
     width: 48px;
     height: 48px;
-    background: rgba(245, 158, 11, 0.1);
-    color: rgba(245, 158, 11, 0.15);
+    background: var(--color-primary);
+    color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
