@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    Shield, Award, Users, Search, Activity,
-    ChevronRight, ChevronLeft, Target, Eye,
-    Zap, Dumbbell, HeartPulse, Wrench
+    HeartPulse, Wrench, Zap, Eye, Target,
+    ChevronLeft, ChevronRight, Dumbbell,
+    UserX, WrenchIcon, EyeOff, TrendingDown, Unlink
 } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import './About.css';
@@ -15,32 +15,13 @@ const pillars = [
     { label: 'STAKEHOLDER CONFIDENCE', icon: <HeartPulse size={20} />, desc: 'Transparent audits. Real-time reporting. Consistent quality.' },
 ];
 
-const missionPoints = [
-    {
-        title: "Discipline",
-        desc: "World-class discipline & systems for every fitness space.",
-        icon: <Award size={28} />,
-    },
-    {
-        title: "Talent",
-        desc: "Trained, courteous & reliable staff at every touchpoint.",
-        icon: <Users size={28} />,
-    },
-    {
-        title: "Transparency",
-        desc: "Data-driven operations. Real-time dashboards.",
-        icon: <Search size={28} />,
-    },
-    {
-        title: "Standards",
-        desc: "Highest hygiene, safety & compliance benchmarks.",
-        icon: <Shield size={28} />,
-    },
-    {
-        title: "Community",
-        desc: "Active, engaged residential & corporate communities.",
-        icon: <Activity size={28} />,
-    },
+/* ─── Problems ─── */
+const problems = [
+    { icon: <UserX size={20} />, text: 'Inconsistent staffing & high attrition' },
+    { icon: <WrenchIcon size={20} />, text: 'Reactive maintenance instead of prevention' },
+    { icon: <EyeOff size={20} />, text: 'No accountability or visibility' },
+    { icon: <TrendingDown size={20} />, text: 'Declining usage & member dissatisfaction' },
+    { icon: <Unlink size={20} />, text: 'Asset wear, breakdowns, and brand dilution' },
 ];
 
 
@@ -60,7 +41,7 @@ const useAutoCarousel = (length: number, interval = 4000) => {
 
 /* ─── Component ─── */
 const About: React.FC = () => {
-    const carousel = useAutoCarousel(missionPoints.length, 4500);
+    const problemCarousel = useAutoCarousel(problems.length, 3500);
 
     return (
         <div className="about-page">
@@ -188,6 +169,75 @@ const About: React.FC = () => {
                 </div>
             </section>
 
+
+            {/* ══════════ THE PROBLEM WE SOLVE ══════════ */}
+            <section className="problem-section section-padding">
+                <div className="container">
+                    <div className="problem-layout">
+
+                        {/* Left — Carousel */}
+                        <div className="problem-carousel-wrap">
+                            <div className="problem-carousel">
+                                <button className="problem-carousel__btn" onClick={problemCarousel.prev} aria-label="Previous">
+                                    <ChevronLeft size={20} />
+                                </button>
+                                <div className="problem-carousel__stage">
+                                    <AnimatePresence mode="wait">
+                                        <motion.div
+                                            key={problemCarousel.active}
+                                            className="problem-card glass-card"
+                                            initial={{ opacity: 0, x: 50 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: -50 }}
+                                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                                        >
+                                            <div className="problem-card__icon">{problems[problemCarousel.active].icon}</div>
+                                            <p>{problems[problemCarousel.active].text}</p>
+                                        </motion.div>
+                                    </AnimatePresence>
+                                </div>
+                                <button className="problem-carousel__btn" onClick={problemCarousel.next} aria-label="Next">
+                                    <ChevronRight size={20} />
+                                </button>
+                            </div>
+                            <div className="problem-dots">
+                                {problems.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        className={`mc-dot ${problemCarousel.active === i ? 'mc-dot--active' : ''}`}
+                                        onClick={() => problemCarousel.setActive(i)}
+                                        aria-label={`Problem ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Right — Header */}
+                        <div className="problem-intro">
+                            <Reveal>
+                                <span className="section-label">The Challenge</span>
+                            </Reveal>
+                            <Reveal delay={0.1}>
+                                <h2 className="problem-section__heading">
+                                    THE PROBLEM <span className="text-gradient">WE SOLVE</span>
+                                </h2>
+                            </Reveal>
+                            <FadeIn delay={0.2}>
+                                <p className="problem-section__lead">
+                                    Most gyms and clubhouse fitness facilities deteriorate over time due to inconsistent staffing, reactive maintenance, and zero accountability.
+                                </p>
+                            </FadeIn>
+                            <FadeIn delay={0.35}>
+                                <p className="problem-section__resolve">
+                                    Techfit Active replaces ad-hoc management with <strong>systems, visibility, and accountability.</strong>
+                                </p>
+                            </FadeIn>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
             {/* ══════════ DNA / STATS ══════════ */}
             {/* <section className="dna-section section-padding">
                 <div className="container">
@@ -220,77 +270,7 @@ const About: React.FC = () => {
             </section> */}
 
             {/* ══════════ MISSION CAROUSEL ══════════ */}
-            <section className="mission-carousel-section section-padding ambient-glow">
-                <div className="container">
-                    <Reveal>
-                        <span className="section-label">WHAT DRIVES US</span>
-                    </Reveal>
-                    <Reveal delay={0.1}>
-                        <h2 className="section-title">OUR <span className="text-gradient">VALUES</span></h2>
-                    </Reveal>
 
-                    {/* Carousel */}
-                    <div className="mc-carousel">
-                        <div className="mc-carousel__stage">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={carousel.active}
-                                    className="mc-slide"
-                                    initial={{ opacity: 0, x: 60 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -60 }}
-                                    transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
-                                >
-                                    <div className="mc-slide__icon">
-                                        {missionPoints[carousel.active].icon}
-                                    </div>
-                                    <div className="mc-slide__content">
-                                        <span className="mc-slide__number">0{carousel.active + 1}</span>
-                                        <h3>{missionPoints[carousel.active].title}</h3>
-                                        <p>{missionPoints[carousel.active].desc}</p>
-                                    </div>
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
-
-                        {/* Controls */}
-                        <div className="mc-controls">
-                            <button className="mc-btn" onClick={carousel.prev} aria-label="Previous">
-                                <ChevronLeft size={20} />
-                            </button>
-                            <div className="mc-dots">
-                                {missionPoints.map((_, i) => (
-                                    <button
-                                        key={i}
-                                        className={`mc-dot ${carousel.active === i ? 'mc-dot--active' : ''}`}
-                                        onClick={() => carousel.setActive(i)}
-                                        aria-label={`Slide ${i + 1}`}
-                                    />
-                                ))}
-                            </div>
-                            <button className="mc-btn" onClick={carousel.next} aria-label="Next">
-                                <ChevronRight size={20} />
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Mini Cards Grid */}
-                    {/* <div className="mission-mini-grid">
-                        {missionPoints.map((point, i) => (
-                            <FadeIn key={i} delay={0.1 * i}>
-                                <div
-                                    className={`mission-mini-card ${carousel.active === i ? 'mission-mini-card--active' : ''}`}
-                                    onClick={() => carousel.setActive(i)}
-                                >
-                                    <div className="mission-mini-card__icon">{point.icon}</div>
-                                    <h4>{point.title}</h4>
-                                    <div className="mission-mini-card__line" />
-                                </div>
-                            </FadeIn>
-                        ))}
-                    </div> */}
-                </div>
-            </section>
 
             {/* ══════════ CTA BAND ══════════ */}
             {/* <section className="about-cta">
