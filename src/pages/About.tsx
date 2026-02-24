@@ -86,24 +86,24 @@ const About: React.FC = () => {
                 <div className="container">
                     <div className="about-story__layout">
                         <div className="about-story__left">
-                            <Reveal>
+                            <div>
                                 <span className="section-label">WHO WE ARE</span>
-                            </Reveal>
-                            <Reveal delay={0.1}>
+                            </div>
+                            <div>
                                 <h2 className="about-story__heading">
                                     ABOUT <span className="text-outline">US</span>
                                 </h2>
-                            </Reveal>
-                            <FadeIn delay={0.25}>
+                            </div>
+                            <div>
                                 <p className="about-story__body">
                                     Techfit Active works on a <strong>preventive, SOP-driven, and audit-led model.</strong> Our objective goes beyond daily operations — we build stable systems that ensure asset longevity, operational continuity, and stakeholder confidence.
                                 </p>
-                            </FadeIn>
-                            <FadeIn delay={0.35}>
+                            </div>
+                            <div>
                                 <p className="about-story__body about-story__body--highlight">
                                     Born out of the <strong>Techfit and Matrix ecosystem</strong>, we bring deep technical understanding of equipment lifecycle, usage patterns, and preventive maintenance, allowing us to manage facilities <em>proactively — not reactively.</em>
                                 </p>
-                            </FadeIn>
+                            </div>
                         </div>
 
                         {/* Pillar Cards */}

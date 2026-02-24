@@ -142,22 +142,22 @@ const Home: React.FC = () => {
             <section className="showcase-section">
                 <div className="showcase-section__content">
                     <div className="showcase-left">
-                        <Reveal>
+                        <div>
                             <span className="section-label">Target Sectors</span>
-                        </Reveal>
-                        <Reveal delay={0.1}>
+                        </div>
+                        <div>
                             <h2 className="section-title showcase-title">
                                 End-to-End <br /><span className="text-gradient">Operational Mastery.</span>
                             </h2>
-                        </Reveal>
-                        <Reveal delay={0.2}>
+                        </div>
+                        <div>
                             <p className="showcase-body">
                                 Techfit Active is a next-generation fitness, clubhouse, and wellness management company, delivering end-to-end operational mastery.
                             </p>
                             <p className="showcase-body showcase-body--sm">
                                 Delivering consistently high standards of service quality, hygiene, and safety across elite fitness environments.
                             </p>
-                        </Reveal>
+                        </div>
 
                         {/* ── WEIGHT STACK SECTORS ── */}
                         <div className="weight-stack" style={{ color: "white" }}>
