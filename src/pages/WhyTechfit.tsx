@@ -171,19 +171,19 @@ const WhyTechfit: React.FC = () => {
 
                         {/* Left — Intro */}
                         <div className="mis-intro">
-                            <Reveal>
+                            <div>
                                 <span className="section-label">Tech-Enabled Operations</span>
-                            </Reveal>
-                            <Reveal delay={0.1}>
+                            </div>
+                            <div>
                                 <h2 className="mis-intro__title">
                                     TECHFIT <span className="text-gradient">MIS</span>
                                 </h2>
-                            </Reveal>
-                            <FadeIn delay={0.2}>
+                            </div>
+                            <div>
                                 <p className="mis-intro__lead">
                                     You don't just get staff on-site. You get <strong>control and peace of mind.</strong>
                                 </p>
-                            </FadeIn>
+                            </div>
                             <FadeIn delay={0.3}>
                                 <p className="mis-intro__body">
                                     This is not reporting. This is <em>operational control.</em> Techfit MIS is our centralized management and reporting system that ensures structure, visibility, and accountability across facilities.
