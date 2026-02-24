@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Handshake, BarChart3 } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import './Home.css';
 import heroBg from "../assets/hero-bg.png";
@@ -265,17 +265,17 @@ const Home: React.FC = () => {
                         <div className="promise-carousel">
                             {[
                                 {
-                                    eq: <KettlebellSVG className="promise-card__svg" />,
+                                    eq: <ShieldCheck size={48} strokeWidth={1.5} />,
                                     title: "No Revenue Sharing",
                                     body: "Your revenue belongs to you. We charge a clear management fee and nothing else.",
                                 },
                                 {
-                                    eq: <BarbellSVG className="promise-card__svg promise-card__svg--barbell" />,
+                                    eq: <Handshake size={48} strokeWidth={1.5} />,
                                     title: "No Hidden Commissions",
                                     body: "Vendor relationships are conflict-free. Every recommendation is in your best interest.",
                                 },
                                 {
-                                    eq: <WeightPlateSVG className="promise-card__svg promise-card__svg--plate" />,
+                                    eq: <BarChart3 size={48} strokeWidth={1.5} />,
                                     title: "Full Transparency",
                                     body: "Monthly performance reports with audit scores, uptime stats, and member satisfaction data.",
                                 },
@@ -283,16 +283,14 @@ const Home: React.FC = () => {
                                 <FadeIn key={i} delay={i * 0.15}>
                                     <div className="promise-card">
                                         <div className="promise-card__visual">{p.eq}</div>
-                                        <h3 className="promise-card__title">{p.title}</h3>
-                                        <p className="promise-card__body">{p.body}</p>
+                                        <div className="promise-card__content">
+                                            <h3 className="promise-card__title">{p.title}</h3>
+                                            <p className="promise-card__body">{p.body}</p>
+                                        </div>
                                     </div>
                                 </FadeIn>
                             ))}
                         </div>
-
-                        {/* <div className="carousel-nav-hint">
-                            <ArrowRight size={16} /> Swipe to explore
-                        </div> */}
                     </div>
                 </div>
             </section>
