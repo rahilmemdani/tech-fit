@@ -225,73 +225,71 @@ const Home: React.FC = () => {
       ══════════════════════════════ */}
             <section className="promise-section">
                 <div className="container promise-container">
-                    <div className="promise-left">
-                        <div className="promise-header">
-                            <Reveal>
-                                <span className="section-label">Our Positioning</span>
-                            </Reveal>
+                    <Reveal>
+                        <div className="promise-frame">
+                            <div className="promise-left">
+                                <div className="promise-header">
+                                    <span className="section-label">Our Positioning</span>
+                                    <h2 className="section-title">
+                                        Asset-Performance <span className="text-gradient">Partner.</span>
+                                    </h2>
+                                    <div className="positioning-content">
+                                        <p className="promise-desc">
+                                            We focus on long-term asset health, predictable operations, and consistent member experience.
+                                        </p>
 
-                            <Reveal delay={0.1}>
-                                <h2 className="section-title">
-                                    Asset-Performance <span className="text-gradient">Partner.</span>
-                                </h2>
-                            </Reveal>
-
-                            <Reveal delay={0.2}>
-                                <div className="positioning-content">
-                                    <p className="promise-desc">
-                                        We focus on long-term asset health, predictable operations, and consistent member experience.
-                                    </p>
-
-                                    {/* ── POWER RACK PHILOSOPHY ── */}
-                                    <div className="power-rack-frame">
-                                        <div className="power-rack__upright" />
-                                        <div className="power-rack__content">
-                                            <blockquote className="philosophy-quote">
-                                                "We don’t manage when something breaks.<br />
-                                                <strong>We manage so things don’t break.</strong>"
-                                            </blockquote>
+                                        {/* ── CABLE MACHINE GYM PROP ── */}
+                                        <div className="cable-machine-frame">
+                                            <div className="cable-machine__upright" />
+                                            <div className="cable-machine__pulley top" />
+                                            <div className="cable-machine__cable" />
+                                            <div className="cable-machine__content">
+                                                <blockquote className="philosophy-quote">
+                                                    "We don’t manage when something breaks.<br />
+                                                    <strong>We manage so things don’t break.</strong>"
+                                                </blockquote>
+                                            </div>
+                                            <div className="cable-machine__pulley bottom" />
+                                            <div className="cable-machine__bolt t-bolt" />
+                                            <div className="cable-machine__bolt b-bolt" />
                                         </div>
-                                        <div className="power-rack__upright" />
-                                        <div className="power-rack__j-cup" />
-                                        <div className="power-rack__j-cup right" />
                                     </div>
                                 </div>
-                            </Reveal>
-                        </div>
-                    </div>
+                            </div>
 
-                    <div className="promise-right">
-                        <div className="promise-carousel">
-                            {[
-                                {
-                                    eq: <ShieldCheck size={48} strokeWidth={1.5} />,
-                                    title: "No Revenue Sharing",
-                                    body: "Your revenue belongs to you. We charge a clear management fee and nothing else.",
-                                },
-                                {
-                                    eq: <Handshake size={48} strokeWidth={1.5} />,
-                                    title: "No Hidden Commissions",
-                                    body: "Vendor relationships are conflict-free. Every recommendation is in your best interest.",
-                                },
-                                {
-                                    eq: <BarChart3 size={48} strokeWidth={1.5} />,
-                                    title: "Full Transparency",
-                                    body: "Monthly performance reports with audit scores, uptime stats, and member satisfaction data.",
-                                },
-                            ].map((p, i) => (
-                                <FadeIn key={i} delay={i * 0.15}>
-                                    <div className="promise-card">
-                                        <div className="promise-card__visual">{p.eq}</div>
-                                        <div className="promise-card__content">
-                                            <h3 className="promise-card__title">{p.title}</h3>
-                                            <p className="promise-card__body">{p.body}</p>
-                                        </div>
-                                    </div>
-                                </FadeIn>
-                            ))}
+                            <div className="promise-right">
+                                <div className="promise-carousel">
+                                    {[
+                                        {
+                                            eq: <ShieldCheck size={40} strokeWidth={1.5} />,
+                                            title: "No Revenue Sharing",
+                                            body: "Your revenue belongs to you. We charge a clear management fee and nothing else.",
+                                        },
+                                        {
+                                            eq: <Handshake size={40} strokeWidth={1.5} />,
+                                            title: "No Hidden Commissions",
+                                            body: "Vendor relationships are conflict-free. Every recommendation is in your best interest.",
+                                        },
+                                        {
+                                            eq: <BarChart3 size={40} strokeWidth={1.5} />,
+                                            title: "Full Transparency",
+                                            body: "Monthly performance reports with audit scores, uptime stats, and member satisfaction data.",
+                                        },
+                                    ].map((p, i) => (
+                                        <FadeIn key={i} delay={i * 0.15}>
+                                            <div className="promise-card">
+                                                <div className="promise-card__visual">{p.eq}</div>
+                                                <div className="promise-card__content">
+                                                    <h3 className="promise-card__title">{p.title}</h3>
+                                                    <p className="promise-card__body">{p.body}</p>
+                                                </div>
+                                            </div>
+                                        </FadeIn>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </Reveal>
                 </div>
             </section>
 
