@@ -229,10 +229,10 @@ const Services: React.FC = () => {
                                         <motion.div
                                             key={consultCarousel.active}
                                             className="svc-consult__slide glass-card"
-                                            initial={{ opacity: 0, x: 40 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -40 }}
-                                            transition={{ duration: 0.3 }}
+                                            initial={{ opacity: 0, scale: 0.96 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.96 }}
+                                            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                                         >
                                             <Lightbulb size={22} className="svc-consult__slide-icon" />
                                             <span>{consultPoints[consultCarousel.active]}</span>
