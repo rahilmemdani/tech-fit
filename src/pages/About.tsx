@@ -188,7 +188,7 @@ const About: React.FC = () => {
             </section>
 
             {/* ══════════ DNA / STATS ══════════ */}
-            <section className="dna-section section-padding">
+            {/* <section className="dna-section section-padding">
                 <div className="container">
                     <Reveal>
                         <span className="section-label">OUR STRENGTH</span>
@@ -216,7 +216,7 @@ const About: React.FC = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* ══════════ MISSION CAROUSEL ══════════ */}
             <section className="mission-carousel-section section-padding ambient-glow">
@@ -274,7 +274,7 @@ const About: React.FC = () => {
                     </div>
 
                     {/* Mini Cards Grid */}
-                    <div className="mission-mini-grid">
+                    {/* <div className="mission-mini-grid">
                         {missionPoints.map((point, i) => (
                             <FadeIn key={i} delay={0.1 * i}>
                                 <div
@@ -287,7 +287,7 @@ const About: React.FC = () => {
                                 </div>
                             </FadeIn>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

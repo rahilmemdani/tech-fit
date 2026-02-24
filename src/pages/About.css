@@ -457,7 +457,7 @@
 }
 
 .mc-carousel {
-    margin-top: 2rem;
+    margin-top: -7rem;
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-xl);
     background: var(--gradient-card);
