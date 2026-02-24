@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import {
-    ArrowRight, ClipboardCheck, UsersRound, Wrench,
+    ClipboardCheck, UsersRound, Wrench,
     BarChart3, Shield, ChevronLeft, ChevronRight,
     Activity, CalendarCheck, UserCheck, Settings, LayoutDashboard, Zap
 } from 'lucide-react';
@@ -13,8 +12,8 @@ import './WhyTechfit.css';
 const whyPillars = [
     { icon: <ClipboardCheck size={24} />, title: 'SOP-Led Operations', desc: 'Operations & audits driven by structured SOPs.' },
     { icon: <UsersRound size={24} />, title: 'Team Staffing', desc: 'Team-based staffing with trained backups.' },
-    { icon: <Wrench size={24} />, title: 'Preventive Maintenance', desc: 'Preventive maintenance & real-time issue tracking.' },
-    { icon: <BarChart3 size={24} />, title: 'Transparent Reporting', desc: 'Transparent reporting & periodic reviews.' },
+    { icon: <Wrench size={24} />, title: 'Preventive Maintenance', desc: 'Preventive maintenance & issue tracking.' },
+    { icon: <BarChart3 size={24} />, title: 'Transparent Reporting', desc: 'Transparent reporting & reviews.' },
     { icon: <Shield size={24} />, title: 'Asset-First Management', desc: 'Asset-first, audit-driven management model.' },
 ];
 

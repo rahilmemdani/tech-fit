@@ -43,12 +43,6 @@ const missionPoints = [
     },
 ];
 
-const dnaStats = [
-    { value: '500+', label: 'Equipment Managed' },
-    { value: '50+', label: 'Facilities' },
-    { value: '10K+', label: 'Active Members' },
-    { value: '99%', label: 'Uptime Rate' },
-];
 
 /* ─── Carousel Hook ─── */
 const useAutoCarousel = (length: number, interval = 4000) => {
