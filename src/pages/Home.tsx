@@ -4,6 +4,7 @@ import { ArrowRight, ShieldCheck, Handshake, BarChart3 } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import './Home.css';
 import heroBg from "../assets/hero-bg.png";
+import { LodhaLogo, GodrejLogo, KalpataruLogo, HiranandaniLogo, OberoiLogo } from '../components/ClientLogos.tsx';
 
 
 
@@ -314,10 +315,14 @@ const Home: React.FC = () => {
                             {[...Array(4)].map((_, setIdx) => (
                                 <div className="clients-marquee__set" key={setIdx} aria-hidden={setIdx > 0}>
                                     {[
-                                        'Lodha Group', 'Godrej Properties', 'Kalpataru', 'Hiranandani', 'Oberoi Realty',
-                                    ].map((name, i) => (
+                                        <LodhaLogo className="client-svg" />,
+                                        <GodrejLogo className="client-svg" />,
+                                        <KalpataruLogo className="client-svg" />,
+                                        <HiranandaniLogo className="client-svg" />,
+                                        <OberoiLogo className="client-svg" />,
+                                    ].map((logo, i) => (
                                         <div className="client-logo-card glass-card" key={`${setIdx}-${i}`}>
-                                            <span className="client-logo-card__name">{name}</span>
+                                            {logo}
                                         </div>
                                     ))}
                                 </div>
