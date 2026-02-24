@@ -167,14 +167,14 @@ const Home: React.FC = () => {
                                 { id: "res", label: "Residential & developer clubhouses", weight: "200 KG" },
                                 { id: "elite", label: "Elite clubs & hospitality projects", weight: "150 KG" }
                             ].map((s, i) => (
-                                <Reveal key={s.id} delay={0.3 + (i * 0.1)}>
+                                <div key={s.id}>
                                     <div className="weight-plate">
                                         <div className="weight-plate__hole" />
                                         <div className="weight-plate__content">
                                             <span className="weight-plate__label">{s.label}</span>
                                         </div>
                                     </div>
-                                </Reveal>
+                                </div>
                             ))}
                         </div>
                     </div>
