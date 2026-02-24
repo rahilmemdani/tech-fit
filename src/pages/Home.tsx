@@ -166,7 +166,7 @@ const Home: React.FC = () => {
                                 { id: "corp", label: "Corporate fitness facilities", weight: "250 KG" },
                                 { id: "res", label: "Residential & developer clubhouses", weight: "200 KG" },
                                 { id: "elite", label: "Elite clubs & hospitality projects", weight: "150 KG" }
-                            ].map((s, i) => (
+                            ].map((s) => (
                                 <div key={s.id}>
                                     <div className="weight-plate">
                                         <div className="weight-plate__hole" />
