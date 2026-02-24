@@ -145,11 +145,11 @@ const Home: React.FC = () => {
                         <Reveal>
                             <span className="section-label">Target Sectors</span>
                         </Reveal>
-                        <Reveal delay={0.1}>
+                        <div>
                             <h2 className="section-title showcase-title">
                                 End-to-End <br /><span className="text-gradient">Operational Mastery.</span>
                             </h2>
-                        </Reveal>
+                        </div>
                         <Reveal delay={0.2}>
                             <p className="showcase-body">
                                 Techfit Active is a next-generation fitness, clubhouse, and wellness management company, delivering end-to-end operational mastery.
