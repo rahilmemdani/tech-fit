@@ -202,22 +202,22 @@ const Services: React.FC = () => {
                             <Reveal>
                                 <span className="svc-consult__badge">NEW — KEY DIFFERENTIATOR</span>
                             </Reveal>
-                            <Reveal delay={0.1}>
+                            <div>
                                 <h2 className="svc-section-heading">
                                     PRE-OPENING<br />
                                     <span className="text-gradient">CONSULTING</span> & ADVISORY
                                 </h2>
-                            </Reveal>
-                            <FadeIn delay={0.2}>
+                            </div>
+                            <div>
                                 <p className="svc-consult__lead">
                                     We don't just manage gyms. We help build them right — from day one.
                                 </p>
-                            </FadeIn>
-                            <FadeIn delay={0.3}>
+                            </div>
+                            <div>
                                 <p className="svc-consult__body">
                                     Techfit Active acts as a fitness & clubhouse consultant for developers and new projects, ensuring facilities are planned for real-world usage, efficiency, and longevity before they open.
                                 </p>
-                            </FadeIn>
+                            </div>
                         </div>
 
                         {/* Right — Carousel + Benefits */}
@@ -314,17 +314,17 @@ const Services: React.FC = () => {
             <section className="svc-cta section-padding">
                 <div className="svc-cta__bg" aria-hidden="true" />
                 <div className="container svc-cta__inner">
-                    <Reveal>
+                    <div>
                         <h2 className="section-title">Custom <span className="text-gradient">Engagement</span></h2>
-                    </Reveal>
-                    <Reveal delay={0.1}>
+                    </div>
+                    <div>
                         <p>Every facility is unique. Let's design a service package that's tailored precisely to your needs.</p>
-                    </Reveal>
-                    <Reveal delay={0.2}>
+                    </div>
+                    <div>
                         <Link to="/contact" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
                             Request a Proposal <ArrowRight size={16} />
                         </Link>
-                    </Reveal>
+                    </div>
                 </div>
             </section>
 
