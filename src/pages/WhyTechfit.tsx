@@ -12,8 +12,8 @@ import './WhyTechfit.css';
 const whyPillars = [
     { icon: <ClipboardCheck size={24} />, title: 'SOP-Led Operations', desc: 'Operations & audits driven by structured SOPs.' },
     { icon: <UsersRound size={24} />, title: 'Team Staffing', desc: 'Team-based staffing with trained backups.' },
-    { icon: <Wrench size={24} />, title: 'Preventive Maintenance', desc: 'Preventive maintenance & issue tracking.' },
-    { icon: <BarChart3 size={24} />, title: 'Transparent Reporting', desc: 'Transparent reporting & reviews.' },
+    { icon: <Wrench size={24} />, title: 'Preventive Maintenance', desc: 'Preventive maintenance & real-time issue tracking.' },
+    { icon: <BarChart3 size={24} />, title: 'Transparent Reporting', desc: 'Transparent reporting & periodic reviews.' },
     { icon: <Shield size={24} />, title: 'Asset-First Management', desc: 'Asset-first, audit-driven management model.' },
 ];
 
