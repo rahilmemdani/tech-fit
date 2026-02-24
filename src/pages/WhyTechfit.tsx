@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-    ArrowRight, CheckCircle2, ClipboardCheck, UsersRound, Wrench,
+    ArrowRight, ClipboardCheck, UsersRound, Wrench,
     BarChart3, Shield, ChevronLeft, ChevronRight,
     Activity, CalendarCheck, UserCheck, Settings, LayoutDashboard, Zap
 } from 'lucide-react';
@@ -80,8 +80,15 @@ const WhyTechfit: React.FC = () => {
 
             {/* ══════════ HERO ══════════ */}
             <section className="why-hero">
+                <div className="why-hero__img" aria-hidden="true">
+                    <img
+                        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=80"
+                        alt=""
+                        loading="eager"
+                    />
+                </div>
+                <div className="why-hero__overlay" aria-hidden="true" />
                 <div className="why-hero__grid" aria-hidden="true" />
-                <div className="why-hero__radial" aria-hidden="true" />
                 <div className="container why-hero__content">
                     <Reveal delay={0.05}>
                         <span className="section-label">The Difference</span>
@@ -251,7 +258,7 @@ const WhyTechfit: React.FC = () => {
             </section>
 
             {/* ══════════ CTA ══════════ */}
-            <section className="why-cta section-padding">
+            {/* <section className="why-cta section-padding">
                 <div className="why-cta__bg" aria-hidden="true" />
                 <div className="container why-cta__inner">
                     <Reveal>
@@ -266,7 +273,7 @@ const WhyTechfit: React.FC = () => {
                         </Link>
                     </Reveal>
                 </div>
-            </section>
+            </section> */}
 
         </div>
     );

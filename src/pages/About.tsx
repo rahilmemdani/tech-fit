@@ -73,8 +73,15 @@ const About: React.FC = () => {
 
             {/* ══════════ HERO ══════════ */}
             <section className="about-hero">
+                <div className="about-hero__img" aria-hidden="true">
+                    <img
+                        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=80"
+                        alt=""
+                        loading="eager"
+                    />
+                </div>
+                <div className="about-hero__overlay" aria-hidden="true" />
                 <div className="about-hero__grid-overlay" aria-hidden="true" />
-                <div className="about-hero__radial" aria-hidden="true" />
                 <div className="about-hero__pulse-ring" aria-hidden="true" />
 
                 <div className="container about-hero__content">
