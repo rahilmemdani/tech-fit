@@ -214,14 +214,14 @@ const About: React.FC = () => {
 
                         {/* Right — Header */}
                         <div className="problem-intro">
-                            <Reveal>
+                            <div>
                                 <span className="section-label">The Challenge</span>
-                            </Reveal>
-                            <Reveal delay={0.1}>
+                            </div>
+                            <div>
                                 <h2 className="problem-section__heading">
                                     THE PROBLEM <span className="text-gradient">WE SOLVE</span>
                                 </h2>
-                            </Reveal>
+                            </div>
                             <FadeIn delay={0.2}>
                                 <p className="problem-section__lead">
                                     Most gyms and clubhouse fitness facilities deteriorate over time due to inconsistent staffing, reactive maintenance, and zero accountability.
