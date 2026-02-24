@@ -1,34 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Shield, TrendingUp, Zap, Target, Award, Users } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import './Home.css';
 import heroBg from "../assets/hero-bg.png";
 
-/* ── Animated Counter Hook ── */
-function useCounter(end: number, duration = 2000) {
-    const ref = useRef<HTMLSpanElement>(null);
-    useEffect(() => {
-        let start = 0;
-        const step = end / (duration / 16);
-        const timer = setInterval(() => {
-            start += step;
-            if (start >= end) { start = end; clearInterval(timer); }
-            if (ref.current) ref.current.textContent = Math.floor(start) + '+';
-        }, 16);
-        return () => clearInterval(timer);
-    }, [end, duration]);
-    return ref;
-}
 
-const services = [
-    { icon: <Shield size={28} strokeWidth={1.5} />, title: 'Facility Management', desc: 'End-to-end operational control. SOPs, compliance, audits — all managed for you.' },
-    { icon: <Users size={28} strokeWidth={1.5} />, title: 'Staffing Solutions', desc: 'Trained, certified staff deployed on-site with zero-downtime backup systems.' },
-    { icon: <Zap size={28} strokeWidth={1.5} />, title: 'Preventive Maintenance', desc: 'Structured cycles that extend equipment lifespan and eliminate reactive breakdowns.' },
-    { icon: <TrendingUp size={28} strokeWidth={1.5} />, title: 'Performance Analytics', desc: 'Monthly MIS, audit scores, usage analytics and real-time reporting dashboards.' },
-    { icon: <Target size={28} strokeWidth={1.5} />, title: 'Member Experience', desc: 'Programming, onboarding and service touchpoints that members actually love.' },
-    { icon: <Award size={28} strokeWidth={1.5} />, title: 'Advisory & Consulting', desc: 'Strategic consulting for new facility launches, expansions and brand repositioning.' },
-];
+
+
 
 /* ── Dumbbell SVG ── */
 const DumbbellSVG = ({ className = '' }: { className?: string }) => (
@@ -71,11 +50,8 @@ const WeightPlateSVG = ({ className = '' }: { className?: string }) => (
 );
 
 const Home: React.FC = () => {
-    const stat50 = useCounter(50);
-    const stat98 = useCounter(98);
-    const stat10 = useCounter(10);
-    const stat500 = useCounter(500);
-    const statRefs = [stat50, stat98, stat10, stat500];
+
+
 
     return (
         <div className="home-page">
