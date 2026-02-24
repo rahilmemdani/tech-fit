@@ -9,12 +9,12 @@
 /* ══ HERO ══ */
 .hero {
     position: relative;
-    min-height: 85vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-top: 2rem;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
     overflow: hidden;
 }
 
@@ -536,7 +536,7 @@
 .showcase-section__content {
     max-width: 1240px;
     margin: 0 auto;
-    padding: clamp(4rem, 8vh, 7rem) clamp(1rem, 4vw, 2.5rem);
+    padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 4vw, 2.5rem);
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 4rem;
@@ -550,15 +550,21 @@
 
 .showcase-body {
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.7;
     color: var(--color-white-muted);
-    margin: 1.25rem 0;
+    margin: 1rem 0 0.5rem;
     max-width: 500px;
+}
+
+.showcase-body--sm {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
 }
 
 /* ── WEIGHT STACK ── */
 .weight-stack {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     position: relative;
     padding-left: 1.5rem;
     display: flex;
@@ -846,7 +852,7 @@
 
 /* ── PROMISE SECTION ── */
 .promise-section {
-    padding: clamp(4rem, 8vh, 7rem) 0;
+    padding: clamp(2.5rem, 6vh, 4.5rem) 0;
     background: var(--color-black);
 }
 
@@ -983,7 +989,7 @@
 /* ══ HOME CTA ══ */
 .home-cta {
     position: relative;
-    min-height: 50vh;
+    min-height: 40vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -1224,8 +1230,8 @@
 
 /* SECTION BASE */
 
+/* Consolidating redundant showcase section styles */
 .showcase-section {
-    padding: 120px 0;
     background: linear-gradient(to bottom, #0c0c0c, #080808);
     position: relative;
     overflow: hidden;

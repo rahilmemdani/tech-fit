@@ -152,6 +152,9 @@ const Home: React.FC = () => {
                         </Reveal>
                         <Reveal delay={0.2}>
                             <p className="showcase-body">
+                                Techfit Active is a next-generation fitness, clubhouse, and wellness management company, delivering end-to-end operational mastery.
+                            </p>
+                            <p className="showcase-body showcase-body--sm">
                                 Delivering consistently high standards of service quality, hygiene, and safety across elite fitness environments.
                             </p>
                         </Reveal>
