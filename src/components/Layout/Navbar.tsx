@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
     { name: 'About', path: '/about' },
     { name: 'Why Techfit', path: '/why-techfit' },
     { name: 'Services', path: '/services' },
-    { name: 'Technology', path: '/technology' },
+    // { name: 'Technology', path: '/technology' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'Contact', path: '/contact' },
   ];

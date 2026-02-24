@@ -294,6 +294,40 @@ const Home: React.FC = () => {
             </section>
 
             {/* ══════════════════════════════
+          OUR CLIENTS — INFINITE MARQUEE
+      ══════════════════════════════ */}
+            <section className="clients-section">
+                <div className="container">
+                    <div style={{ textAlign: 'center' }}>
+                        <span className="section-label">Trusted By</span>
+                    </div>
+                    <div style={{ textAlign: 'center' }}>
+                        <h2 className="section-title">
+                            Our <span className="text-gradient">Clients</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div className="clients-marquee-wrap">
+                    <div className="clients-marquee">
+                        <div className="clients-marquee__track">
+                            {[...Array(4)].map((_, setIdx) => (
+                                <div className="clients-marquee__set" key={setIdx} aria-hidden={setIdx > 0}>
+                                    {[
+                                        'Lodha Group', 'Godrej Properties', 'Kalpataru', 'Hiranandani', 'Oberoi Realty',
+                                    ].map((name, i) => (
+                                        <div className="client-logo-card glass-card" key={`${setIdx}-${i}`}>
+                                            <span className="client-logo-card__name">{name}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ══════════════════════════════
           KINETIC CTA
       ══════════════════════════════ */}
             <section className="home-cta">
