@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
     ArrowRight, Dumbbell, Building2, HeartPulse,
     ChevronLeft, ChevronRight, Lightbulb, CheckCircle2,
     LayoutDashboard, Users, Wrench,
-    BarChart3, MessageSquare
+    BarChart3, MessageSquare, Plus, Minus
 } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import './Services.css';
@@ -87,7 +87,19 @@ const useCarousel = (length: number) => {
 /* ─── COMPONENT ─── */
 const Services: React.FC = () => {
     const [activeService, setActiveService] = useState(0);
+    const [openDrawer, setOpenDrawer] = useState(0); // first open by default
     const consultCarousel = useCarousel(consultPoints.length);
+    const drawerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+    const toggleDrawer = (i: number) => {
+        const next = openDrawer === i ? -1 : i;
+        setOpenDrawer(next);
+        if (next >= 0) {
+            setTimeout(() => {
+                drawerRefs.current[next]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 80);
+        }
+    };
 
     return (
         <div className="services-page">
@@ -120,7 +132,7 @@ const Services: React.FC = () => {
                 </div>
             </section>
 
-            {/* ══════════ CORE SERVICES — TAB LAYOUT ══════════ */}
+            {/* ══════════ CORE SERVICES ══════════ */}
             <section className="svc-core section-padding ambient-glow">
                 <div className="container">
                     <Reveal>
@@ -132,58 +144,111 @@ const Services: React.FC = () => {
                         </h2>
                     </Reveal>
 
-                    {/* Tab Buttons */}
-                    <div className="svc-tabs">
-                        {coreServices.map((s, i) => (
-                            <button
-                                key={i}
-                                className={`svc-tab ${activeService === i ? 'svc-tab--active' : ''}`}
-                                onClick={() => setActiveService(i)}
+                    {/* ── DESKTOP: Tab Layout ── */}
+                    <div className="svc-desktop-only">
+                        <div className="svc-tabs">
+                            {coreServices.map((s, i) => (
+                                <button
+                                    key={i}
+                                    className={`svc-tab ${activeService === i ? 'svc-tab--active' : ''}`}
+                                    onClick={() => setActiveService(i)}
+                                >
+                                    <span className="svc-tab__icon">{s.icon}</span>
+                                    <span>{s.title}</span>
+                                </button>
+                            ))}
+                        </div>
+
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeService}
+                                className="svc-detail"
+                                initial={{ opacity: 0, scale: 0.96 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.96 }}
+                                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                             >
-                                <span className="svc-tab__icon">{s.icon}</span>
-                                <span>{s.title}</span>
-                            </button>
-                        ))}
+                                <div className="svc-detail__image">
+                                    <img
+                                        src={coreServices[activeService].image}
+                                        alt={coreServices[activeService].title}
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="svc-detail__info">
+                                    <h3>{coreServices[activeService].title}</h3>
+                                    <ul className="svc-detail__bullets">
+                                        {coreServices[activeService].bullets.map((b, j) => (
+                                            <li key={j}>
+                                                <CheckCircle2 size={16} className="svc-bullet-icon" />
+                                                <span>{b}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {activeService === 2 && (
+                            <FadeIn delay={0.2}>
+                                <p className="svc-note">
+                                    All programs are structured to increase participation and long-term asset value.
+                                </p>
+                            </FadeIn>
+                        )}
                     </div>
 
-                    {/* Active Service Detail */}
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeService}
-                            className="svc-detail"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                        >
-                            <div className="svc-detail__image">
-                                <img
-                                    src={coreServices[activeService].image}
-                                    alt={coreServices[activeService].title}
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="svc-detail__info">
-                                <h3>{coreServices[activeService].title}</h3>
-                                <ul className="svc-detail__bullets">
-                                    {coreServices[activeService].bullets.map((b, j) => (
-                                        <li key={j}>
-                                            <CheckCircle2 size={16} className="svc-bullet-icon" />
-                                            <span>{b}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
-
-                    {activeService === 2 && (
-                        <FadeIn delay={0.2}>
-                            <p className="svc-note">
-                                All programs are structured to increase participation and long-term asset value.
-                            </p>
-                        </FadeIn>
-                    )}
+                    {/* ── MOBILE: Accordion Layout ── */}
+                    <div className="svc-mobile-only">
+                        <div className="svc-accordion">
+                            {coreServices.map((s, i) => {
+                                const isOpen = openDrawer === i;
+                                return (
+                                    <div
+                                        key={i}
+                                        className={`svc-drawer ${isOpen ? 'svc-drawer--open' : ''}`}
+                                        ref={el => { drawerRefs.current[i] = el; }}
+                                    >
+                                        <button
+                                            className="svc-drawer__header"
+                                            onClick={() => toggleDrawer(i)}
+                                        >
+                                            <span className="svc-drawer__icon">{s.icon}</span>
+                                            <span className="svc-drawer__title">{s.title}</span>
+                                            <span className="svc-drawer__toggle">
+                                                {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                                            </span>
+                                        </button>
+                                        <AnimatePresence initial={i === 0}>
+                                            {isOpen && (
+                                                <motion.div
+                                                    className="svc-drawer__body"
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: 'auto', opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                                                >
+                                                    <div className="svc-drawer__content">
+                                                        <div className="svc-drawer__img">
+                                                            <img src={s.image} alt={s.title} loading="lazy" />
+                                                        </div>
+                                                        <ul className="svc-detail__bullets">
+                                                            {s.bullets.map((b, j) => (
+                                                                <li key={j}>
+                                                                    <CheckCircle2 size={14} className="svc-bullet-icon" />
+                                                                    <span>{b}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </div>
             </section>
 

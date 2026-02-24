@@ -75,6 +75,7 @@
     flex-wrap: wrap;
     gap: 0.6rem;
     margin-bottom: 2rem;
+    justify-content: center;
 }
 
 .svc-tab {
