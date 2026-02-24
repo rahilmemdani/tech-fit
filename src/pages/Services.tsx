@@ -277,19 +277,19 @@ const Services: React.FC = () => {
                 <div className="container">
                     <div className="svc-e2e__layout">
                         <div className="svc-e2e__left">
-                            <Reveal>
+                            <div>
                                 <span className="section-label">Full Spectrum</span>
-                            </Reveal>
-                            <Reveal delay={0.1}>
+                            </div>
+                            <div>
                                 <h2 className="svc-section-heading">
                                     TRUE <span className="text-gradient">END-TO-END</span><br />MANAGEMENT
                                 </h2>
-                            </Reveal>
-                            <FadeIn delay={0.2}>
+                            </div>
+                            <div>
                                 <p className="svc-e2e__lead">
                                     Single-point ownership across people, processes, and performance.
                                 </p>
-                            </FadeIn>
+                            </div>
                         </div>
                         <div className="svc-e2e__grid">
                             {e2ePoints.map((p, i) => (
