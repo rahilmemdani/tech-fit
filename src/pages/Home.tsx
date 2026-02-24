@@ -101,25 +101,25 @@ const Home: React.FC = () => {
                     <Reveal delay={0.05}>
                         <div className="hero__eyebrow">
                             <span className="hero__eyebrow-dot" />
-                            Professional Fitness Management
+                            Professional Gym & Clubhouse Management
                         </div>
                     </Reveal>
 
                     <Reveal delay={0.12}>
                         <h1 className="hero__headline">
-                            <span className="hero__headline-line1">MANAGING</span>
-                            <span className="hero__headline-accent">FITNESS.</span>
+                            <span className="hero__headline-line1">MANAGING FITNESS.</span>
+                            <span className="hero__headline-accent">MAXIMIZING EXPERIENCE.</span>
                         </h1>
                     </Reveal>
 
                     <Reveal delay={0.2}>
-                        <h2 className="hero__subheadline">MAXIMIZING EXPERIENCE.</h2>
+                        <h2 className="hero__subheadline">TECHFIT ACTIVE | ADVISORY & CONSULTING</h2>
                     </Reveal>
 
                     <Reveal delay={0.28}>
                         <p className="hero__body">
-                            We run fitness spaces like long-term assets — not just amenities.<br className="desktop-only" />
-                            Preventive. Transparent. World-class.
+                            We manage fitness spaces like long-term assets — not amenities.<br className="desktop-only" />
+                            Protecting, operating, and elevating your investment.
                         </p>
                     </Reveal>
 
@@ -137,39 +137,50 @@ const Home: React.FC = () => {
             </section>
 
             {/* ══════════════════════════════
-          GYM SHOWCASE — DRAMATIC VISUAL SECTION
+          COMPANY OVERVIEW — DRAMATIC VISUAL SECTION
       ══════════════════════════════ */}
             <section className="showcase-section">
                 <div className="showcase-section__content">
                     <div className="showcase-left">
                         <Reveal>
-                            <span className="section-label">Our Philosophy</span>
+                            <span className="section-label">Target Sectors</span>
                         </Reveal>
                         <Reveal delay={0.1}>
                             <h2 className="section-title showcase-title">
-                                Built for<br /><span className="text-gradient">Iron.</span><br />
-                                Designed for<br /><span className="text-gradient">Excellence.</span>
+                                End-to-End <br /><span className="text-gradient">Operational Mastery.</span>
                             </h2>
                         </Reveal>
                         <Reveal delay={0.2}>
                             <p className="showcase-body">
-                                We don't just manage gyms — we curate high-performance environments. From the moment
-                                a member walks in to when they rack their last weight, every touchpoint is designed,
-                                trained for, and audited.
+                                Delivering consistently high standards of service quality, hygiene, and safety across elite fitness environments.
                             </p>
                         </Reveal>
-                        <Reveal delay={0.3}>
-                            <Link to="/why-techfit" className="btn btn-primary" id="showcase-why-btn">
-                                Why Techfit <ArrowRight size={16} />
-                            </Link>
-                        </Reveal>
+
+                        {/* ── WEIGHT STACK SECTORS ── */}
+                        <div className="weight-stack" style={{ color: "white" }}>
+                            <div className="weight-stack__cable" />
+                            {[
+                                { id: "corp", label: "Corporate fitness facilities", weight: "250 KG" },
+                                { id: "res", label: "Residential & developer clubhouses", weight: "200 KG" },
+                                { id: "elite", label: "Elite clubs & hospitality projects", weight: "150 KG" }
+                            ].map((s, i) => (
+                                <Reveal key={s.id} delay={0.3 + (i * 0.1)}>
+                                    <div className="weight-plate">
+                                        <div className="weight-plate__hole" />
+                                        <div className="weight-plate__content">
+                                            <span className="weight-plate__label">{s.label}</span>
+                                        </div>
+                                    </div>
+                                </Reveal>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="showcase-right">
                         <FadeIn delay={0.2}>
                             <div className="showcase-visual">
-                                {/* Dramatic gym equipment art */}
                                 <div className="showcase-visual__bg" />
+                                {/* RESTORED DUMBBELL RACK */}
                                 <div className="showcase-rack">
                                     <div className="rack-row rack-row--1">
                                         {[70, 65, 60, 55, 50, 45].map(w => (
@@ -197,8 +208,8 @@ const Home: React.FC = () => {
                                     <div className="rack-floor-glow" />
                                 </div>
                                 <div className="showcase-visual__tag">
-                                    <strong>Managed Inventory</strong>
-                                    <span>Equipment tracked &amp; maintained</span>
+                                    <strong>Elite Management</strong>
+                                    <span>Trained manpower &amp; SOPs</span>
                                 </div>
                             </div>
                         </FadeIn>
@@ -214,19 +225,35 @@ const Home: React.FC = () => {
                     <div className="promise-left">
                         <div className="promise-header">
                             <Reveal>
-                                <span className="section-label">Our Guarantee</span>
+                                <span className="section-label">Our Positioning</span>
                             </Reveal>
 
                             <Reveal delay={0.1}>
                                 <h2 className="section-title">
-                                    The Techfit <span className="text-gradient">Standard.</span>
+                                    Asset-Performance <span className="text-gradient">Partner.</span>
                                 </h2>
                             </Reveal>
 
                             <Reveal delay={0.2}>
-                                <p className="promise-desc">
-                                    Engineering reliability into every square foot. We manage facilities with clinical precision and absolute fiscal transparency.
-                                </p>
+                                <div className="positioning-content">
+                                    <p className="promise-desc">
+                                        We focus on long-term asset health, predictable operations, and consistent member experience.
+                                    </p>
+
+                                    {/* ── POWER RACK PHILOSOPHY ── */}
+                                    <div className="power-rack-frame">
+                                        <div className="power-rack__upright" />
+                                        <div className="power-rack__content">
+                                            <blockquote className="philosophy-quote">
+                                                "We don’t manage when something breaks.<br />
+                                                <strong>We manage so things don’t break.</strong>"
+                                            </blockquote>
+                                        </div>
+                                        <div className="power-rack__upright" />
+                                        <div className="power-rack__j-cup" />
+                                        <div className="power-rack__j-cup right" />
+                                    </div>
+                                </div>
                             </Reveal>
                         </div>
                     </div>

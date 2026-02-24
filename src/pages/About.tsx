@@ -1,114 +1,98 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TrendingUp, ShieldCheck, Users, BarChart2 } from 'lucide-react';
+import { ArrowRight, Shield, Zap, Target } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import './About.css';
-
-const pillars = [
-    { icon: <TrendingUp size={22} />, title: 'Asset Longevity', desc: 'Maximizing the life and value of your fitness equipment and facilities through expert preventive maintenance.' },
-    { icon: <ShieldCheck size={22} />, title: 'Operational Continuity', desc: 'Zero downtime through structured SOPs, backup staffing, and real-time monitoring protocols.' },
-    { icon: <Users size={22} />, title: 'Member Experience', desc: 'Delivering world-class service through rigorously trained and courteous staff who represent your brand.' },
-    { icon: <BarChart2 size={22} />, title: 'Stakeholder Confidence', desc: 'Transparent reporting and audit-driven management that gives management teams complete peace of mind.' },
-];
 
 const About: React.FC = () => {
     return (
         <div className="about-page">
 
-            {/* ─── HEADER ─── */}
-            <section className="page-hero section-frame">
-                <div className="page-hero__bg" aria-hidden="true">
-                    <div className="page-hero__radial" />
-                    <div className="page-hero__grid" />
+            {/* ─── BOLD HERO ─── */}
+            <section className="about-hero">
+                <div className="about-hero__bg" aria-hidden="true">
+                    <div className="about-hero__radial" />
+                    <div className="about-hero__grid" />
                 </div>
-                <div className="container page-hero__content">
+
+                <div className="container about-hero__content text-center">
                     <Reveal delay={0.05}>
-                        <span className="section-label">Who We Are</span>
+                        <div className="about-hero__eyebrow justify-center">
+                            <span className="about-hero__eyebrow-dot" />
+                            Our DNA
+                        </div>
                     </Reveal>
+
                     <Reveal delay={0.15}>
-                        <h1 className="page-hero__title">
-                            About <span className="text-gradient">Techfit</span><br />
-                            <span className="page-hero__title--dim">Active.</span>
+                        <h1 className="about-hero__headline">
+                            <span className="about-hero__line1">TECHFIT</span>
+                            <span className="about-hero__accent">ACTIVE.</span>
                         </h1>
                     </Reveal>
+
                     <Reveal delay={0.25}>
-                        <p className="page-hero__desc">
-                            Born from the Techfit and Matrix ecosystem, we bring deep technical understanding of equipment lifecycle,
-                            usage patterns, and preventive maintenance — managing facilities proactively, not reactively.
+                        <p className="about-hero__desc mx-auto">
+                            Techfit Active works on a preventive, SOP-driven, and audit-led model.
                         </p>
                     </Reveal>
                 </div>
             </section>
 
-            {/* ─── OUR MODEL ─── */}
-            <section className="about-model section-frame">
-                <div className="about-model__bg" aria-hidden="true" />
-                <div className="container about-model__inner">
-                    <div className="about-model__text">
-                        <Reveal>
-                            <span className="section-label">Our Approach</span>
-                        </Reveal>
-                        <Reveal delay={0.1}>
-                            <h2 className="section-title">The Techfit <span className="text-gradient">Model</span></h2>
-                        </Reveal>
-                        <Reveal delay={0.2}>
-                            <p>
-                                Techfit Active works on a preventive, SOP-driven, and audit-led model. Our objective goes
-                                beyond daily operations — we build stable systems that ensure asset longevity, operational
-                                continuity, and stakeholder confidence.
-                            </p>
-                        </Reveal>
-                        <Reveal delay={0.3}>
-                            <p>
-                                We combine trained manpower, structured SOPs, preventive maintenance systems, and
-                                technology-enabled oversight to deliver a seamlessly managed fitness environment.
-                            </p>
-                        </Reveal>
-                        <Reveal delay={0.4}>
-                            <Link to="/services" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
-                                View Services <ArrowRight size={16} />
-                            </Link>
-                        </Reveal>
-                    </div>
-                    <div className="about-model__visual">
-                        <FadeIn delay={0.3}>
-                            <div className="about-model__badge glass-card">
-                                <div className="about-model__badge-num">10+</div>
-                                <div className="about-model__badge-label">Years of expertise in fitness management ecosystems</div>
-                            </div>
-                        </FadeIn>
-                        <FadeIn delay={0.45}>
-                            <div className="about-model__badge glass-card">
-                                <div className="about-model__badge-num">50+</div>
-                                <div className="about-model__badge-label">Premium facilities managed across India</div>
-                            </div>
-                        </FadeIn>
-                    </div>
-                </div>
-            </section>
-
-            {/* ─── CORE PILLARS ─── */}
-            <section className="core-pillars section-frame">
+            {/* ─── CORE NARRATIVE ─── */}
+            <section className="about-story section-padding">
                 <div className="container">
-                    <div className="core-pillars__header">
-                        <Reveal>
-                            <span className="section-label">What Drives Us</span>
-                        </Reveal>
-                        <Reveal delay={0.1}>
-                            <h2 className="section-title">Our Core <span className="text-gradient">Pillars</span></h2>
-                        </Reveal>
-                    </div>
-                    <div className="core-pillars__grid">
-                        {pillars.map((p, i) => (
-                            <FadeIn key={i} delay={i * 0.1}>
-                                <div className="core-pillar-card glass-card">
-                                    <div className="core-pillar-card__num">0{i + 1}</div>
-                                    <div className="core-pillar-card__icon">{p.icon}</div>
-                                    <h3>{p.title}</h3>
-                                    <p>{p.desc}</p>
+                    <div className="about-story__grid">
+                        <div className="about-story__text">
+                            <Reveal>
+                                <span className="section-label">Our Objective</span>
+                            </Reveal>
+                            <Reveal delay={0.1}>
+                                <h2 className="section-title">Stable Systems. <br /><span className="text-gradient">Predictable Results.</span></h2>
+                            </Reveal>
+                            <Reveal delay={0.2}>
+                                <p className="about-story__main-desc">
+                                    Our objective goes beyond daily operations — we build stable systems that ensure peak performance and long-term sustainability.
+                                </p>
+                            </Reveal>
+
+                            <div className="about-story__pillars">
+                                {[
+                                    { icon: <Shield size={24} />, title: "Asset Longevity", desc: "Protecting and maximizing the life of your equipment through technical precision." },
+                                    { icon: <Zap size={24} />, title: "Operational Continuity", desc: "Zero downtime through structured protocols and proactive maintenance." },
+                                    { icon: <Target size={24} />, title: "Stakeholder Confidence", desc: "Complete transparency and peace of mind through audit-led management." }
+                                ].map((pillar, i) => (
+                                    <FadeIn key={i} delay={0.3 + i * 0.1}>
+                                        <div className="about-pillar">
+                                            <div className="about-pillar__icon text-primary">{pillar.icon}</div>
+                                            <div className="about-pillar__content">
+                                                <h4>{pillar.title}</h4>
+                                                <p>{pillar.desc}</p>
+                                            </div>
+                                        </div>
+                                    </FadeIn>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="about-story__lineage">
+                            <FadeIn delay={0.5}>
+                                <div className="lineage-card glass-card">
+                                    <h3 className="lineage-title">Technical Pedigree</h3>
+                                    <p>
+                                        Born out of the <strong>Techfit and Matrix ecosystem</strong>, we bring deep technical understanding of equipment lifecycle, usage patterns, and preventive maintenance.
+                                    </p>
+                                    <p className="mt-4">
+                                        This allow us to manage facilities <strong>proactively — not reactively</strong>.
+                                    </p>
+
+                                    <div className="lineage-footer">
+                                        <Link to="/contact" className="btn btn-primary w-full justify-center mt-8">
+                                            Partner with Us <ArrowRight size={18} />
+                                        </Link>
+                                    </div>
                                 </div>
                             </FadeIn>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -118,3 +102,4 @@ const About: React.FC = () => {
 };
 
 export default About;
+
