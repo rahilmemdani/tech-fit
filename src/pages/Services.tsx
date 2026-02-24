@@ -135,14 +135,14 @@ const Services: React.FC = () => {
             {/* ══════════ CORE SERVICES ══════════ */}
             <section className="svc-core section-padding ambient-glow">
                 <div className="container">
-                    <Reveal>
+                    <div style={{ textAlign: 'center' }}>
                         <span className="section-label">Core Offerings</span>
-                    </Reveal>
-                    <Reveal delay={0.1}>
+                    </div>
+                    <div style={{ textAlign: 'center' }}>
                         <h2 className="svc-section-heading">
                             WHAT WE <span className="text-gradient">MANAGE</span>
                         </h2>
-                    </Reveal>
+                    </div>
 
                     {/* ── DESKTOP: Tab Layout ── */}
                     <div className="svc-desktop-only">
