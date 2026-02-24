@@ -151,20 +151,18 @@ const WhyTechfit: React.FC = () => {
                 </div>
             </section>
 
-            {/* ══════════ CONTRAST STRIPS ══════════ */}
+            {/* ══════════ CONTRAST CARDS ══════════ */}
             <section className="why-contrast section-padding">
                 <div className="container">
-                    <div className="contrast-strips">
+                    <div className="contrast-grid">
                         {contrasts.map((c, i) => (
                             <FadeIn key={i} delay={0.1 * i}>
-                                <div className="contrast-row">
-                                    <span className="contrast-wrong">
-                                        Not {c.wrong}.
-                                    </span>
-                                    <span className="contrast-arrow">→</span>
-                                    <span className="contrast-right">
-                                        {c.right}.
-                                    </span>
+                                <div className="contrast-card glass-card">
+                                    <span className="contrast-card__old">{c.wrong}</span>
+                                    <div className="contrast-card__divider">
+                                        <span className="contrast-card__x">✓</span>
+                                    </div>
+                                    <span className="contrast-card__new">{c.right}</span>
                                 </div>
                             </FadeIn>
                         ))}
