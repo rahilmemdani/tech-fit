@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     HeartPulse, Wrench, Zap, Eye, Target,
@@ -26,22 +26,17 @@ const problems = [
 
 
 /* ─── Carousel Hook ─── */
-const useAutoCarousel = (length: number, interval = 4000) => {
+const useCarousel = (length: number) => {
     const [active, setActive] = useState(0);
     const next = useCallback(() => setActive(p => (p + 1) % length), [length]);
     const prev = useCallback(() => setActive(p => (p - 1 + length) % length), [length]);
-
-    useEffect(() => {
-        const id = setInterval(next, interval);
-        return () => clearInterval(id);
-    }, [next, interval]);
 
     return { active, setActive, next, prev };
 };
 
 /* ─── Component ─── */
 const About: React.FC = () => {
-    const problemCarousel = useAutoCarousel(problems.length, 3500);
+    const problemCarousel = useCarousel(problems.length);
 
     return (
         <div className="about-page">
@@ -186,10 +181,10 @@ const About: React.FC = () => {
                                         <motion.div
                                             key={problemCarousel.active}
                                             className="problem-card glass-card"
-                                            initial={{ opacity: 0, x: 50 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -50 }}
-                                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                                            initial={{ opacity: 0, scale: 0.96 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.96 }}
+                                            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
                                         >
                                             <div className="problem-card__icon">{problems[problemCarousel.active].icon}</div>
                                             <p>{problems[problemCarousel.active].text}</p>

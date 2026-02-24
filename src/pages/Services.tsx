@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -76,15 +76,10 @@ const e2ePoints = [
 ];
 
 /* ─── Carousel Hook ─── */
-const useAutoCarousel = (length: number, interval = 4000) => {
+const useCarousel = (length: number) => {
     const [active, setActive] = useState(0);
     const next = useCallback(() => setActive(p => (p + 1) % length), [length]);
     const prev = useCallback(() => setActive(p => (p - 1 + length) % length), [length]);
-
-    useEffect(() => {
-        const id = setInterval(next, interval);
-        return () => clearInterval(id);
-    }, [next, interval]);
 
     return { active, setActive, next, prev };
 };
@@ -92,7 +87,7 @@ const useAutoCarousel = (length: number, interval = 4000) => {
 /* ─── COMPONENT ─── */
 const Services: React.FC = () => {
     const [activeService, setActiveService] = useState(0);
-    const consultCarousel = useAutoCarousel(consultPoints.length, 3500);
+    const consultCarousel = useCarousel(consultPoints.length);
 
     return (
         <div className="services-page">

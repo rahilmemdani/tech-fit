@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ClipboardCheck, UsersRound, Wrench,
@@ -56,24 +56,19 @@ const misSlides = [
     },
 ];
 
-/* ─── Auto Carousel Hook ─── */
-const useAutoCarousel = (length: number, interval = 4000) => {
+/* ─── Carousel Hook ─── */
+const useCarousel = (length: number) => {
     const [active, setActive] = useState(0);
     const next = useCallback(() => setActive(p => (p + 1) % length), [length]);
     const prev = useCallback(() => setActive(p => (p - 1 + length) % length), [length]);
-
-    useEffect(() => {
-        const id = setInterval(next, interval);
-        return () => clearInterval(id);
-    }, [next, interval]);
 
     return { active, setActive, next, prev };
 };
 
 /* ─── COMPONENT ─── */
 const WhyTechfit: React.FC = () => {
-    const misCarousel = useAutoCarousel(misSlides.length, 4000);
-    const pillarCarousel = useAutoCarousel(whyPillars.length, 5000);
+    const misCarousel = useCarousel(misSlides.length);
+    const pillarCarousel = useCarousel(whyPillars.length);
 
     return (
         <div className="why-page">
