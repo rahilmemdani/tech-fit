@@ -35,11 +35,28 @@ const Contact: React.FC = () => {
 
     return (
         <div className="contact-page">
-            <section className="page-header contact-header">
-                <div className="container">
-                    <Reveal>
-                        <h1>Let's Talk <span className="text-red">About It</span></h1>
+            {/* ══════════ HERO SECTION ══════════ */}
+            <section className="contact-hero">
+                <div className="contact-hero__bg">
+                    <div className="contact-hero__glow-1" />
+                    <div className="contact-hero__glow-2" />
+                    <div className="contact-hero__grid" />
+                </div>
+                <div className="container contact-hero__content">
+                    <Reveal delay={0.05}>
+                        <span className="section-label">Contact Us</span>
                     </Reveal>
+                    <Reveal delay={0.15}>
+                        <h1 className="contact-hero__title">
+                            LET'S TALK <br />
+                            <span className="text-gradient">ABOUT IT</span>
+                        </h1>
+                    </Reveal>
+                    <FadeIn delay={0.3}>
+                        <p className="contact-hero__subtitle">
+                            Ready to elevate your fitness asset? Partner with us today for professional, future-ready management.
+                        </p>
+                    </FadeIn>
                 </div>
             </section>
 
@@ -48,54 +65,68 @@ const Contact: React.FC = () => {
                     <div className="contact-grid">
                         <div className="contact-info-list">
                             <Reveal>
-                                <h2 className="section-title">Get in Touch</h2>
+                                <h2 className="section-title">Get in <span className="text-gradient">Touch</span></h2>
                             </Reveal>
                             <Reveal delay={0.2}>
-                                <p>Ready to elevate your fitness asset? Partner with us today.</p>
+                                <p className="contact-info-desc">We're here to answer your questions and help you transform your fitness facility into an elite destination.</p>
                             </Reveal>
 
                             <div className="info-cards">
                                 <FadeIn delay={0.3}>
-                                    <div className="info-card glass">
-                                        <Phone className="text-red" />
-                                        <div>
-                                            <h4>Call Us</h4>
-                                            <p>+91-9326447321</p>
+                                    <a href="tel:+919326447321" className="info-card-link">
+                                        <div className="info-card glass-card">
+                                            <div className="info-card__icon"><Phone size={24} /></div>
+                                            <div className="info-card__content">
+                                                <h4>Call Us</h4>
+                                                <p>+91-9326447321</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </FadeIn>
                                 <FadeIn delay={0.4}>
-                                    <div className="info-card glass">
-                                        <Mail className="text-red" />
-                                        <div>
-                                            <h4>Email Us</h4>
-                                            <p>info@techfitactive.com</p>
+                                    <a href="mailto:info@techfitactive.com" className="info-card-link">
+                                        <div className="info-card glass-card">
+                                            <div className="info-card__icon"><Mail size={24} /></div>
+                                            <div className="info-card__content">
+                                                <h4>Email Us</h4>
+                                                <p>info@techfitactive.com</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </FadeIn>
                                 <FadeIn delay={0.5}>
-                                    <div className="info-card glass">
-                                        <MapPin className="text-red" />
-                                        <div>
-                                            <h4>Address</h4>
-                                            <p>Plot No 309, Coal Bunder Road, E, Reay Rd, Darukhana, Mumbai, Maharashtra 400010</p>
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Plot+No+309+Coal+Bunder+Road+E+Reay+Rd+Darukhana+Mumbai+Maharashtra+400010"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="info-card-link"
+                                    >
+                                        <div className="info-card glass-card">
+                                            <div className="info-card__icon"><MapPin size={24} /></div>
+                                            <div className="info-card__content">
+                                                <h4>Address</h4>
+                                                <p>Reay Rd, Darukhana, Mumbai - 400010</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </FadeIn>
                             </div>
 
                             <div className="social-box">
-                                <h4>Follow Our Journey</h4>
+                                <h4 className="social-title">Follow Our Journey</h4>
                                 <div className="social-links">
-                                    <a href="#"><Facebook /></a>
-                                    <a href="#"><Twitter /></a>
-                                    <a href="#"><Youtube /></a>
+                                    <a href="#" className="social-link"><Facebook size={20} /></a>
+                                    <a href="#" className="social-link"><Twitter size={20} /></a>
+                                    <a href="#" className="social-link"><Youtube size={20} /></a>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="contact-form-container glass">
+                        <div className="contact-form-wrapper glass-card">
                             <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
+                                <Reveal delay={0.1}>
+                                    <h3 className="form-title">Send an Enquiry</h3>
+                                </Reveal>
                                 <div className="form-row">
                                     <div className="form-group">
                                         <label>First Name *</label>
@@ -123,8 +154,9 @@ const Contact: React.FC = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Company Name *</label>
-                                    <input {...register("companyName", { required: true })} placeholder="Your Company / Society" />
+                                    <label>Company / Society Name *</label>
+                                    <input {...register("companyName", { required: true })} placeholder="Your Company Name" />
+                                    {errors.companyName && <span className="error">Required</span>}
                                 </div>
 
                                 <div className="form-group">
@@ -133,6 +165,7 @@ const Contact: React.FC = () => {
                                         <option value="">Select an option</option>
                                         {enquiryOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                                     </select>
+                                    {errors.enquiryFor && <span className="error">Please select an option</span>}
                                 </div>
 
                                 <div className="form-group">
@@ -140,8 +173,8 @@ const Contact: React.FC = () => {
                                     <textarea {...register("requirement")} rows={4} placeholder="Tell us more about your facility..." />
                                 </div>
 
-                                <button type="submit" className="btn btn-primary w-full">
-                                    Send Enquiry <Send size={18} />
+                                <button type="submit" className="btn btn-primary btn-submit">
+                                    Submit Enquiry <Send size={18} />
                                 </button>
                             </form>
                         </div>
@@ -153,3 +186,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+

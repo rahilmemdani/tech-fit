@@ -275,3 +275,33 @@
         font-size: 3rem;
     }
 }
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .prc-hero__title {
+        font-size: 2.2rem;
+    }
+
+    .prc-hero__subtitle {
+        font-size: 0.95rem;
+    }
+
+    .prc-card {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .prc-trans-chip {
+        padding: 1.25rem;
+    }
+
+    .prc-cta__inner {
+        padding: 3rem 1.5rem;
+    }
+
+    .prc-cta__title {
+        font-size: 1.8rem;
+    }
+}
