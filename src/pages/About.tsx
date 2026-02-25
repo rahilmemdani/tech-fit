@@ -91,12 +91,12 @@ const About: React.FC = () => {
                             </div>
                             <div>
                                 <p className="about-story__body">
-                                    Techfit Active works on a <strong>preventive, SOP-driven, and audit-led model.</strong> Our objective goes beyond daily operations — we build stable systems that ensure asset longevity, operational continuity, and stakeholder confidence.
+                                    Techfit Active works on a <strong>preventive, SOP-driven, and audit-led model.</strong> Our objective goes beyond daily operations. We build stable systems that ensure asset longevity, operational continuity, and stakeholder confidence.
                                 </p>
                             </div>
                             <div>
                                 <p className="about-story__body about-story__body--highlight">
-                                    Born out of the <strong>Techfit and Matrix ecosystem</strong>, we bring deep technical understanding of equipment lifecycle, usage patterns, and preventive maintenance, allowing us to manage facilities <em>proactively — not reactively.</em>
+                                    Born out of the <strong>Techfit and Matrix ecosystem</strong>, we bring deep technical understanding of equipment lifecycle, usage patterns, and preventive maintenance, allowing us to manage facilities <em>proactively, not reactively.</em>
                                 </p>
                             </div>
                         </div>
