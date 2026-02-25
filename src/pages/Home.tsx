@@ -247,7 +247,7 @@ const Home: React.FC = () => {
                                             <div className="cable-machine__content">
                                                 <blockquote className="philosophy-quote">
                                                     "We don’t manage when something breaks.<br />
-                                                    <strong>We manage so things don’t break.</strong>"
+                                                    <strong>We manage so things don’t break."</strong>
                                                 </blockquote>
                                             </div>
                                             <div className="cable-machine__pulley bottom" />
@@ -353,7 +353,7 @@ const Home: React.FC = () => {
                     <div>
                         <p className="home-cta__body">
                             Partner with Techfit Active and turn your fitness space into a premium, high-performance experience your members will stay for.
-                        </p>
+                        </p>We manage fitness spaces like long-term asset
                     </div>
                     <div>
                         <div className="home-cta__btns">
