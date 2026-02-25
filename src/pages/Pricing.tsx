@@ -80,14 +80,14 @@ const Pricing: React.FC = () => {
             <section className="prc-transparency section-padding">
                 <div className="container">
                     <div className="prc-trans__header">
-                        <Reveal>
+                        <div>
                             <span className="section-label">Trust & Integrity</span>
-                        </Reveal>
-                        <Reveal delay={0.1}>
+                        </div>
+                        <div>
                             <h2 className="section-title">
                                 TRANSPARENCY <br /><span className="text-gradient">COMMITMENT</span>
                             </h2>
-                        </Reveal>
+                        </div>
                     </div>
 
                     <div className="prc-trans__grid">
