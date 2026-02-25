@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import Loader from './components/Loader';
+import PageTransition from './components/PageTransition';
 
 // Lazy load pages for performance
 const Home = lazy(() => import('./pages/Home.tsx'));
@@ -18,6 +19,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <PageTransition />
       <Layout>
         <Suspense fallback={<Loader />}>
           <Routes>
@@ -32,6 +34,7 @@ function App() {
         </Suspense>
       </Layout>
     </Router>
+
   );
 }
 

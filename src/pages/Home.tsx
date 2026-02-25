@@ -343,21 +343,21 @@ const Home: React.FC = () => {
                     <WeightPlateSVG className="home-cta__deco home-cta__deco--plate-r" />
                 </div>
                 <div className="container home-cta__inner">
-                    <Reveal>
+                    <div>
                         <span className="section-label">Let's Connect</span>
-                    </Reveal>
-                    <Reveal delay={0.1}>
+                    </div>
+                    <div>
                         <h2 className="home-cta__headline">
                             Ready to Build<br />
                             <span className="text-gradient">Something Great?</span>
                         </h2>
-                    </Reveal>
-                    <Reveal delay={0.2}>
+                    </div>
+                    <div>
                         <p className="home-cta__body">
                             Partner with Techfit Active and turn your fitness space into a premium, high-performance experience your members will stay for.
                         </p>
-                    </Reveal>
-                    <Reveal delay={0.3}>
+                    </div>
+                    <div>
                         <div className="home-cta__btns">
                             <Link to="/contact" className="btn btn-primary" id="home-final-cta-btn">
                                 Talk to Us <ArrowRight size={18} />
@@ -366,7 +366,7 @@ const Home: React.FC = () => {
                                 +91 9326 447 321
                             </a>
                         </div>
-                    </Reveal>
+                    </div>
                 </div>
             </section>
 
