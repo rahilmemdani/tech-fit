@@ -41,15 +41,15 @@ const Pricing: React.FC = () => {
                     <div className="prc-hero__grid" />
                 </div>
                 <div className="container prc-hero__content">
-                    <Reveal delay={0.05}>
+                    <div>
                         <span className="section-label">Investment</span>
-                    </Reveal>
-                    <Reveal delay={0.15}>
+                    </div>
+                    <div>
                         <h1 className="prc-hero__title">
                             ENGAGEMENT & <br />
                             <span className="text-gradient">PRICING</span>
                         </h1>
-                    </Reveal>
+                    </div>
                     <FadeIn delay={0.3}>
                         <p className="prc-hero__subtitle">
                             Flexible and scalable models designed for long-term asset performance.
