@@ -43,10 +43,10 @@ const Contact: React.FC = () => {
                     <div className="contact-hero__grid" />
                 </div>
                 <div className="container contact-hero__content">
-                    <Reveal delay={0.05}>
+                    <Reveal delay={0.05} width="100%">
                         <span className="section-label">Contact Us</span>
                     </Reveal>
-                    <Reveal delay={0.15}>
+                    <Reveal delay={0.15} width="100%">
                         <h1 className="contact-hero__title">
                             LET'S TALK <br />
                             <span className="text-gradient">ABOUT IT</span>
@@ -64,10 +64,10 @@ const Contact: React.FC = () => {
                 <div className="container">
                     <div className="contact-grid">
                         <div className="contact-info-list">
-                            <Reveal>
+                            <Reveal width="100%">
                                 <h2 className="section-title">Get in <span className="text-gradient">Touch</span></h2>
                             </Reveal>
-                            <Reveal delay={0.2}>
+                            <Reveal delay={0.2} width="100%">
                                 <p className="contact-info-desc">We're here to answer your questions and help you transform your fitness facility into an elite destination.</p>
                             </Reveal>
 
@@ -124,7 +124,7 @@ const Contact: React.FC = () => {
 
                         <div className="contact-form-wrapper glass-card">
                             <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
-                                <Reveal delay={0.1}>
+                                <Reveal delay={0.1} width="100%">
                                     <h3 className="form-title">Send an Enquiry</h3>
                                 </Reveal>
                                 <div className="form-row">
@@ -186,4 +186,5 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+
 
