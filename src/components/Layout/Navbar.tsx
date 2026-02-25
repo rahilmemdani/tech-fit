@@ -74,13 +74,13 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-          </div>
-
-          {/* Desktop CTA */}
-          <div className="nav-actions">
-            <Link to="/contact" className="btn btn-primary btn-nav" id="navbar-cta-btn">
+            <Link to="/contact" className="btn btn-primary btn-nav-desktop">
               Talk to Us
             </Link>
+          </div>
+
+          {/* Mobile Actions */}
+          <div className="nav-actions">
             {/* Hamburger */}
             <button
               className="nav-toggle"
