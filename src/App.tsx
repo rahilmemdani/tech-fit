@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import ScrollToTop from './components/ScrollToTop';
+import Loader from './components/Loader';
 
 // Lazy load pages for performance
 const Home = lazy(() => import('./pages/Home.tsx'));
@@ -12,28 +13,13 @@ const Technology = lazy(() => import('./pages/Technology.tsx'));
 const Pricing = lazy(() => import('./pages/Pricing.tsx'));
 const Contact = lazy(() => import('./pages/Contact.tsx'));
 
-// Loading component
-const Loading = () => (
-  <div style={{
-    height: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#000',
-    color: '#E31837',
-    fontSize: '2rem',
-    fontWeight: 'bold'
-  }}>
-    TECHFIT<span style={{ color: '#fff' }}>ACTIVE...</span>
-  </div>
-);
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
       <Layout>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

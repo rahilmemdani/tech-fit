@@ -1,0 +1,109 @@
+/* ══════════════ PREMIUM LOADER ══════════════ */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    gap: 2.5rem;
+}
+
+/* ── Logo Animation ── */
+.loader__logo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader__logo {
+    width: clamp(140px, 30vw, 200px);
+    height: auto;
+    animation: loaderPulse 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(232, 23, 42, 0.3));
+}
+
+@keyframes loaderPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px rgba(232, 23, 42, 0.2));
+    }
+
+    50% {
+        transform: scale(1.04);
+        filter: drop-shadow(0 0 40px rgba(232, 23, 42, 0.45));
+    }
+}
+
+/* ── Progress Bar ── */
+.loader__bar-track {
+    width: clamp(160px, 30vw, 220px);
+    height: 3px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.loader__bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-primary, #E8172A), #ff4d5a);
+    border-radius: 100px;
+    animation: loaderProgress 1.6s ease-in-out infinite;
+}
+
+@keyframes loaderProgress {
+    0% {
+        width: 0%;
+        margin-left: 0%;
+    }
+
+    50% {
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    100% {
+        width: 0%;
+        margin-left: 100%;
+    }
+}
+
+/* ── Background Glow ── */
+.loader__glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 23, 42, 0.08) 0%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: loaderGlowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes loaderGlowPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+/* ── Fade-out Transition ── */
+.loader--fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
+}

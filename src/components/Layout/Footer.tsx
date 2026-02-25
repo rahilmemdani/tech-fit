@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Youtube, ArrowUpRight } from 'lucide-react';
+import logo from '../../assets/techfit-active-logo.png';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -23,9 +24,7 @@ const Footer: React.FC = () => {
                     {/* Brand */}
                     <div className="footer__brand">
                         <Link to="/" className="nav-logo footer__logo">
-                            <span className="nav-logo__word">TECH</span>
-                            <span className="nav-logo__accent">FIT</span>
-                            <span className="nav-logo__tag">ACTIVE</span>
+                            <img src={logo} alt="Techfit Active" className="nav-logo__img" />
                         </Link>
                         <p className="footer__desc">
                             Next-generation fitness & clubhouse management. We manage spaces like long-term assets.

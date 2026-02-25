@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import logo from '../../assets/techfit-active-logo.png';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -59,9 +60,7 @@ const Navbar: React.FC = () => {
         <div className="container nav-content">
           {/* Logo */}
           <Link to="/" className="nav-logo" aria-label="Techfit Active Home">
-            <span className="nav-logo__word">TECH</span>
-            <span className="nav-logo__accent">FIT</span>
-            <span className="nav-logo__tag">ACTIVE</span>
+            <img src={logo} alt="Techfit Active" className="nav-logo__img" />
           </Link>
 
           {/* Desktop Nav */}
@@ -113,9 +112,7 @@ const Navbar: React.FC = () => {
       >
         <div className="mobile-drawer__header">
           <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
-            <span className="nav-logo__word">TECH</span>
-            <span className="nav-logo__accent">FIT</span>
-            <span className="nav-logo__tag">ACTIVE</span>
+            <img src={logo} alt="Techfit Active" className="nav-logo__img" />
           </Link>
           <button className="nav-toggle" onClick={() => setIsOpen(false)} aria-label="Close menu">
             <X size={24} strokeWidth={2.5} />
