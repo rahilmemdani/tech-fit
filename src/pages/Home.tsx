@@ -119,7 +119,7 @@ const Home: React.FC = () => {
 
                     <Reveal delay={0.28}>
                         <p className="hero__body">
-                            We manage fitness spaces like long-term assets — not amenities.<br className="desktop-only" />
+                            We manage fitness spaces like long-term assets — not amenities.
                             Protecting, operating, and elevating your investment.
                         </p>
                     </Reveal>

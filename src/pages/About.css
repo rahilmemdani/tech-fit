@@ -120,17 +120,25 @@
 }
 
 .about-title {
-    font-size: clamp(3.2rem, 8vw, 7.5rem);
-    font-weight: 950;
-    line-height: 0.95;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 7vw, 7rem);
+    /* Exact sync with Home page */
+    font-weight: 900;
     letter-spacing: -0.04em;
-    margin-bottom: 1rem;
+    line-height: 0.92;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.about-title span {
+    display: block;
 }
 
 .about-hero__subtitle {
     font-size: clamp(1rem, 2vw, 1.3rem);
     color: var(--color-white-muted);
-    max-width: 500px;
+    max-width: none;
     line-height: 1.7;
     margin-bottom: 0;
 }
@@ -305,7 +313,7 @@
 
 .text-outline {
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.15);
+    -webkit-text-stroke: 1.5px rgb(255, 255, 255);
 }
 
 .about-story__body {
@@ -318,6 +326,7 @@
 .about-story__body strong {
     color: var(--color-white);
 }
+
 
 .about-story__body--highlight {
     padding-left: 1.5rem;

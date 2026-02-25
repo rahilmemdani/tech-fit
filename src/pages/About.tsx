@@ -5,7 +5,7 @@ import {
     ChevronLeft, ChevronRight, Dumbbell,
     UserX, WrenchIcon, EyeOff, TrendingDown, Unlink
 } from 'lucide-react';
-import { Reveal, FadeIn } from '../components/Reveal.tsx';
+import { FadeIn } from '../components/Reveal.tsx';
 import './About.css';
 
 /* ─── Data ─── */
@@ -55,22 +55,22 @@ const About: React.FC = () => {
                 <div className="about-hero__pulse-ring" aria-hidden="true" />
 
                 <div className="container about-hero__content">
-                    <Reveal>
+                    <div>
                         <span className="about-eyebrow">
                             <Dumbbell size={14} />
                             TECHFIT ACTIVE
                         </span>
-                    </Reveal>
-                    <Reveal delay={0.15}>
+                    </div>
+                    <div >
                         <h1 className="about-title">
-                            PREVENTIVE.<br />
-                            <span className="text-gradient">SOP-DRIVEN.</span><br />
-                            AUDIT-LED.
+                            <span>PREVENTIVE.</span>
+                            <span className="text-gradient">SOP-DRIVEN.</span>
+                            <span>AUDIT-LED.</span>
                         </h1>
-                    </Reveal>
+                    </div>
                     <FadeIn delay={0.4}>
                         <p className="about-hero__subtitle">
-                            We don't just manage gyms — we engineer excellence.
+                            We don't just manage gyms <strong>we engineer excellence.</strong>
                         </p>
                     </FadeIn>
                 </div>

@@ -65,7 +65,7 @@
 .prc-hero__subtitle {
     font-size: clamp(1rem, 1.6vw, 1.25rem);
     color: var(--color-white-muted);
-    max-width: 600px;
+    max-width: none;
     margin: 0 auto;
     line-height: 1.6;
 }
