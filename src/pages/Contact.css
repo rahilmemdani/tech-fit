@@ -3,6 +3,7 @@
 .contact-page {
     background: var(--color-black);
     color: var(--color-white);
+    overflow-x: hidden;
 }
 
 /* ── HERO ── */
@@ -86,6 +87,11 @@
         gap: 3.5rem;
         max-width: 650px;
         margin: 0 auto;
+    }
+
+    .contact-grid>* {
+        min-width: 0;
+        max-width: 100%;
     }
 
     .contact-form-wrapper {
@@ -252,6 +258,9 @@
     font-family: inherit;
     font-size: 1rem;
     transition: all 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .form-group input::placeholder,
@@ -282,6 +291,8 @@
     font-size: 1rem;
     font-weight: 800;
     justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* ── RESPONSIVE ── */
@@ -289,6 +300,11 @@
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+
+    .contact-form-wrapper {
+        max-width: 100%;
+        overflow: hidden;
     }
 }
 
@@ -302,7 +318,13 @@
     }
 
     .contact-form-wrapper {
-        padding: 2.5rem 1.5rem;
+        padding: 2rem 1.25rem;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .contact-grid {
+        max-width: 100%;
     }
 
     .info-card {
@@ -354,12 +376,23 @@
 
     .info-card__content p {
         font-size: 0.95rem;
-        word-break: break-all;
+        word-break: break-word;
+        overflow-wrap: anywhere;
     }
 
     .contact-form-wrapper {
         padding: 1.5rem 1rem;
         border-radius: var(--radius-md);
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .contact-form {
+        max-width: 100%;
+    }
+
+    .form-row {
+        gap: 1rem;
     }
 
     .btn-submit {
