@@ -63,7 +63,13 @@ const Footer: React.FC = () => {
                             </li>
                             <li>
                                 <MapPin size={15} className="footer__icon" />
-                                <span>Coal Bunder Rd, Darukhana,<br />Mumbai 400010</span>
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=Plot+No+309+Coal+Bunder+Road+E+Reay+Rd+Darukhana+Mumbai+Maharashtra+400010"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Coal Bunder Rd, Darukhana,<br />Mumbai 400010
+                                </a>
                             </li>
                         </ul>
                     </div>

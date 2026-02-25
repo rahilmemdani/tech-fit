@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import {
     CheckCircle2, Users,
@@ -125,9 +126,9 @@ const Pricing: React.FC = () => {
                             </FadeIn>
                             <FadeIn delay={0.3}>
                                 <div className="prc-cta__btns">
-                                    <a href="/contact" className="btn btn-primary">
+                                    <Link to="/contact" className="btn btn-primary">
                                         Talk to an Expert <ArrowRight size={18} />
-                                    </a>
+                                    </Link>
                                 </div>
                             </FadeIn>
                         </div>
