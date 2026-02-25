@@ -179,4 +179,8 @@
         flex-direction: column;
         text-align: center;
     }
+
+    .footer__logo .nav-logo__img {
+        height: 40px;
+    }
 }
