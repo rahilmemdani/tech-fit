@@ -92,14 +92,28 @@ const Services: React.FC = () => {
     const drawerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     const toggleDrawer = (i: number) => {
-        const next = openDrawer === i ? -1 : i;
-        setOpenDrawer(next);
-        if (next >= 0) {
+        const isOpening = openDrawer !== i;
+        setOpenDrawer(isOpening ? i : -1);
+
+        if (isOpening) {
+            // We wait for the state to update and for animations to start settling.
+            // A slightly longer timeout (150ms) ensures layout shifts are accounted for.
             setTimeout(() => {
-                drawerRefs.current[next]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 80);
+                const target = drawerRefs.current[i];
+                if (target) {
+                    const navbarHeight = 85; // Fixed navbar height
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 150);
         }
     };
+
 
     return (
         <div className="services-page">

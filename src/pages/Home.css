@@ -1135,6 +1135,24 @@
     }
 }
 
+/* ── Mobile Marquee Tweaks ── */
+@media (max-width: 600px) {
+
+    .clients-marquee__track,
+    .clients-marquee__set {
+        gap: 0.75rem;
+    }
+
+    .client-logo-card {
+        width: 160px;
+        height: 80px;
+    }
+
+    .client-logo-img {
+        max-height: 55px;
+    }
+}
+
 /* ══ HOME CTA ══ */
 .home-cta {
     position: relative;
