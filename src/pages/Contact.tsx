@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Reveal, FadeIn } from '../components/Reveal';
-import { Phone, Mail, MapPin, Send, Facebook, Twitter, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Facebook, Twitter, Youtube, Loader2 } from 'lucide-react';
 import './Contact.css';
+import { SuccessModal } from '../components/SuccessModal';
 
 interface ContactFormData {
     firstName: string;
@@ -15,11 +16,34 @@ interface ContactFormData {
 }
 
 const Contact: React.FC = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const onSubmit = (data: ContactFormData) => {
-        console.log(data);
-        alert("Thank you! Your enquiry has been sent. We'll get back to you shortly.");
+    const onSubmit = async (data: ContactFormData) => {
+        setIsSubmitting(true);
+        try {
+            const response = await fetch("https://techfit-backend.vercel.app/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                setShowSuccess(true);
+                reset();
+            } else {
+                alert("❌ Failed to send enquiry.");
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("⚠️ Server error. Try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const enquiryOptions = [
@@ -173,14 +197,23 @@ const Contact: React.FC = () => {
                                     <textarea {...register("requirement")} rows={4} placeholder="Tell us more about your facility..." />
                                 </div>
 
-                                <button type="submit" className="btn btn-primary btn-submit">
-                                    Submit Enquiry <Send size={18} />
+                                <button type="submit" className="btn btn-primary btn-submit" disabled={isSubmitting}>
+                                    {isSubmitting ? (
+                                        <>Sending... <Loader2 size={18} className="animate-spin" /></>
+                                    ) : (
+                                        <>Submit Enquiry <Send size={18} /></>
+                                    )}
                                 </button>
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <SuccessModal
+                isOpen={showSuccess}
+                onClose={() => setShowSuccess(false)}
+            />
         </div>
     );
 };
