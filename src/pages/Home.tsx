@@ -119,7 +119,7 @@ const Home: React.FC = () => {
 
                     <Reveal delay={0.28}>
                         <p className="hero__body">
-                            We manage fitness spaces like long-term assets — not amenities.
+                            We manage fitness spaces like long-term assets — not amenities.<br />
                             Protecting, operating, and elevating your investment.
                         </p>
                     </Reveal>
@@ -135,12 +135,12 @@ const Home: React.FC = () => {
                         </div>
                     </Reveal>
                 </div>
-            </section>
+            </section >
 
             {/* ══════════════════════════════
           COMPANY OVERVIEW — DRAMATIC VISUAL SECTION
       ══════════════════════════════ */}
-            <section className="showcase-section">
+            < section className="showcase-section" >
                 <div className="showcase-section__content">
                     <div className="showcase-left">
                         <div>
@@ -219,12 +219,12 @@ const Home: React.FC = () => {
                         </FadeIn>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* ══════════════════════════════
           PROMISE SECTION 3 COLUMNS
       ══════════════════════════════ */}
-            <section className="promise-section">
+            < section className="promise-section" >
                 <div className="container promise-container">
                     <Reveal>
                         <div className="promise-frame">
@@ -292,12 +292,12 @@ const Home: React.FC = () => {
                         </div>
                     </Reveal>
                 </div>
-            </section>
+            </section >
 
             {/* ══════════════════════════════
           OUR CLIENTS — INFINITE MARQUEE
       ══════════════════════════════ */}
-            <section className="clients-section">
+            < section className="clients-section" >
                 <div className="container">
                     <div style={{ textAlign: 'center' }}>
                         <span className="section-label">Trusted By</span>
@@ -328,12 +328,12 @@ const Home: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* ══════════════════════════════
           KINETIC CTA
       ══════════════════════════════ */}
-            <section className="home-cta">
+            < section className="home-cta" >
                 <div className="home-cta__bg" aria-hidden="true">
                     <div className="home-cta__radial" />
                     <BarbellSVG className="home-cta__deco home-cta__deco--barbell" />
@@ -366,9 +366,9 @@ const Home: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
-        </div>
+        </div >
     );
 };
 

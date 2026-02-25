@@ -161,7 +161,7 @@
     display: flex;
     gap: 1rem;
     align-items: flex-start;
-    transition: background 0.3s ease;
+    transition: "background 0.3s ease";
 }
 
 .prc-trans-chip:hover {
