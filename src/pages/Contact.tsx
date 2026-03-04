@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { Phone, Mail, MapPin, Send, Facebook, Twitter, Youtube, Loader2 } from 'lucide-react';
 import './Contact.css';
-import { SuccessModal } from '../components/SuccessModal';
 
 interface ContactFormData {
     firstName: string;
@@ -17,7 +17,7 @@ interface ContactFormData {
 
 const Contact: React.FC = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
-    const [showSuccess, setShowSuccess] = useState(false);
+    const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const onSubmit = async (data: ContactFormData) => {
@@ -32,8 +32,8 @@ const Contact: React.FC = () => {
             });
 
             if (response.ok) {
-                setShowSuccess(true);
                 reset();
+                navigate('/thank-you');
             } else {
                 alert("❌ Failed to send enquiry.");
             }
@@ -210,10 +210,7 @@ const Contact: React.FC = () => {
                 </div>
             </section>
 
-            <SuccessModal
-                isOpen={showSuccess}
-                onClose={() => setShowSuccess(false)}
-            />
+
         </div>
     );
 };

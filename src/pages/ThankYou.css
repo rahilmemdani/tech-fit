@@ -1,0 +1,96 @@
+/* ══════════════ THANK YOU PAGE ══════════════ */
+
+.thankyou-page {
+    background: var(--color-black);
+    color: var(--color-white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── Background effects ── */
+.thankyou-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.thankyou-glow-1 {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(232, 23, 42, 0.12) 0%, transparent 70%);
+    filter: blur(80px);
+}
+
+.thankyou-glow-2 {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(232, 23, 42, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+}
+
+.thankyou-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+/* ── Content ── */
+.thankyou-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+}
+
+.thankyou-icon-wrap {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    background: rgba(232, 23, 42, 0.08);
+    border: 2px solid rgba(232, 23, 42, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+}
+
+.thankyou-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 950;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.25rem;
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-400) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.thankyou-message {
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    color: var(--color-white-muted);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.thankyou-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1rem;
+}

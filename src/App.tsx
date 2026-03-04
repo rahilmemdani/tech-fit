@@ -13,6 +13,7 @@ const Services = lazy(() => import('./pages/Services.tsx'));
 const Technology = lazy(() => import('./pages/Technology.tsx'));
 const Pricing = lazy(() => import('./pages/Pricing.tsx'));
 const Contact = lazy(() => import('./pages/Contact.tsx'));
+const ThankYou = lazy(() => import('./pages/ThankYou.tsx'));
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/technology" element={<Technology />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/thank-you" element={<ThankYou />} />
           </Routes>
         </Suspense>
       </Layout>
