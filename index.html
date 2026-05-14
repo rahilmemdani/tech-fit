@@ -10,30 +10,57 @@
   <title>Techfit Active — Premium Fitness Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <style>
+    /* App Shell Preloader */
+    body, html { margin: 0; padding: 0; background-color: #000; }
+    .app-shell-transition { position: fixed; inset: 0; z-index: 850; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); gap: 2rem; }
+    .app-shell-transition__logo-wrapper { position: relative; display: flex; align-items: center; justify-content: center; }
+    .app-shell-transition__logo { width: clamp(120px, 25vw, 180px); height: auto; animation: shellLogoPulse 0.6s ease-in-out; filter: drop-shadow(0 0 24px rgba(232, 23, 42, 0.35)); }
+    @keyframes shellLogoPulse { 0% { transform: scale(0.85); opacity: 0; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+    .app-shell-transition__bar-track { width: clamp(140px, 25vw, 200px); height: 2px; background: rgba(255, 255, 255, 0.06); border-radius: 100px; overflow: hidden; }
+    .app-shell-transition__bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #E8172A, #ff4d5a); border-radius: 100px; animation: shellProgress 3s ease-out forwards; }
+    @keyframes shellProgress { 0% { width: 0%; } 100% { width: 100%; } }
+    .app-shell-transition__glow { position: absolute; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(232, 23, 42, 0.06) 0%, transparent 70%); filter: blur(50px); pointer-events: none; }
+  </style>
+
   <!-- Render-blocking Google Fonts to prevent massive CLS (FOUT) -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=optional"
     rel="stylesheet" />
   <!-- Preload hero image for faster LCP -->
   <link rel="preload" as="image" href="/hero-bg.png" fetchpriority="high" />
-  <!-- Google Ads (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17963556801"></script>
+  <!-- Google Ads & GTM Deferred Loader -->
   <script>
+    // Initialize dataLayer and gtag queue immediately so tracking calls don't fail
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', 'AW-17963556801');
+
+    // Defer loading the heavy scripts until after the page has fully loaded
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        // Load gtag.js
+        var gtagScript = document.createElement('script');
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17963556801';
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        // Load GTM
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+          }); 
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; 
+          j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; 
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TCMWDPV3');
+      }, 3000);
+    });
   </script>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-TCMWDPV3');</script>
-  <!-- End Google Tag Manager -->
 
 </head>
 
@@ -42,7 +69,17 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCMWDPV3" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <div id="root"></div>
+  <div id="root">
+    <div class="app-shell-transition">
+        <div class="app-shell-transition__glow" aria-hidden="true"></div>
+        <div class="app-shell-transition__logo-wrapper">
+            <img src="/techfit-active-logo.png" alt="Techfit Active" class="app-shell-transition__logo" draggable="false" width="160" height="60" />
+        </div>
+        <div class="app-shell-transition__bar-track">
+            <div class="app-shell-transition__bar-fill"></div>
+        </div>
+    </div>
+  </div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
