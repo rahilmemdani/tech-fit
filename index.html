@@ -39,27 +39,40 @@
     gtag('js', new Date());
     gtag('config', 'AW-17963556801');
 
-    // Defer loading the heavy scripts until after the page has fully loaded
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        // Load gtag.js
-        var gtagScript = document.createElement('script');
-        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17963556801';
-        gtagScript.async = true;
-        document.head.appendChild(gtagScript);
+    // Defer loading the heavy scripts until first user interaction for max PageSpeed
+    const loadTracking = function() {
+      if (window.trackingLoaded) return;
+      window.trackingLoaded = true;
 
-        // Load GTM
-        (function (w, d, s, l, i) {
-          w[l] = w[l] || []; w[l].push({
-            'gtm.start': new Date().getTime(), event: 'gtm.js'
-          }); 
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; 
-          j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; 
-          f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-TCMWDPV3');
-      }, 3000);
+      // Load gtag.js
+      var gtagScript = document.createElement('script');
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17963556801';
+      gtagScript.async = true;
+      document.head.appendChild(gtagScript);
+
+      // Load GTM
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start': new Date().getTime(), event: 'gtm.js'
+        }); 
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; 
+        j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; 
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-TCMWDPV3');
+
+      // Cleanup listeners
+      ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(function(evt) {
+        window.removeEventListener(evt, loadTracking);
+      });
+    };
+
+    ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(function(evt) {
+      window.addEventListener(evt, loadTracking, { passive: true, once: true });
     });
+
+    // Fallback: load after 5 seconds if no interaction occurs
+    setTimeout(loadTracking, 5000);
   </script>
 
 </head>
@@ -69,17 +82,18 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCMWDPV3" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <div id="root">
-    <div class="app-shell-transition">
-        <div class="app-shell-transition__glow" aria-hidden="true"></div>
-        <div class="app-shell-transition__logo-wrapper">
-            <img src="/techfit-active-logo.png" alt="Techfit Active" class="app-shell-transition__logo" draggable="false" width="160" height="60" />
-        </div>
-        <div class="app-shell-transition__bar-track">
-            <div class="app-shell-transition__bar-fill"></div>
-        </div>
-    </div>
+  <!-- App Shell / Splash Screen (Outside of React root to prevent hydration CLS) -->
+  <div id="splash" class="app-shell-transition">
+      <div class="app-shell-transition__glow" aria-hidden="true"></div>
+      <div class="app-shell-transition__logo-wrapper">
+          <img src="/techfit-active-logo.png" alt="Techfit Active" class="app-shell-transition__logo" draggable="false" width="160" height="60" />
+      </div>
+      <div class="app-shell-transition__bar-track">
+          <div class="app-shell-transition__bar-fill"></div>
+      </div>
   </div>
+
+  <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
