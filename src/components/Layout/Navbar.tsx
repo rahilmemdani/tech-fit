@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
     { name: 'Services', path: '/services' },
     // { name: 'Technology', path: '/technology' },
     { name: 'Pricing', path: '/pricing' },
-    { name: 'Contact', path: '/contact' },
+    // { name: 'Contact', path: '/contact' },
   ];
 
   useEffect(() => {
