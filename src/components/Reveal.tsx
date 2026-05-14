@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface RevealProps {
     children: React.ReactNode;
@@ -10,7 +10,7 @@ interface RevealProps {
 export const Reveal: React.FC<RevealProps> = ({ children, width = "fit-content", delay = 0.2 }) => {
     return (
         <div style={{ position: "relative", width, overflow: "hidden" }}>
-            <motion.div
+            <m.div
                 variants={{
                     hidden: { opacity: 0, y: 75 },
                     visible: { opacity: 1, y: 0 },
@@ -21,14 +21,14 @@ export const Reveal: React.FC<RevealProps> = ({ children, width = "fit-content",
                 viewport={{ once: true }}
             >
                 {children}
-            </motion.div>
+            </m.div>
         </div>
     );
 };
 
 export const FadeIn: React.FC<RevealProps> = ({ children, width = "100%", delay = 0.2 }) => {
     return (
-        <motion.div
+        <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay }}
@@ -36,6 +36,6 @@ export const FadeIn: React.FC<RevealProps> = ({ children, width = "100%", delay 
             style={{ width }}
         >
             {children}
-        </motion.div>
+        </m.div>
     );
 };

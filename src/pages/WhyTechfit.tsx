@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import {
     ClipboardCheck, UsersRound, Wrench,
     BarChart3, Shield, ChevronLeft, ChevronRight,
@@ -113,7 +113,7 @@ const WhyTechfit: React.FC = () => {
                         </button>
                         <div className="wp-carousel__stage">
                             <AnimatePresence mode="wait">
-                                <motion.div
+                                <m.div
                                     key={pillarCarousel.active}
                                     className="wp-card glass-card"
                                     initial={{ opacity: 0, scale: 0.96 }}
@@ -125,7 +125,7 @@ const WhyTechfit: React.FC = () => {
                                     <h3>{whyPillars[pillarCarousel.active].title}</h3>
                                     <p>{whyPillars[pillarCarousel.active].desc}</p>
                                     <div className="wp-card__bar" />
-                                </motion.div>
+                                </m.div>
                             </AnimatePresence>
                         </div>
                         <button className="wp-carousel__btn wp-carousel__btn--right" onClick={pillarCarousel.next} aria-label="Next">
@@ -215,7 +215,7 @@ const WhyTechfit: React.FC = () => {
                                 <div className="mis-carousel">
                                     <div className="mis-carousel__stage">
                                         <AnimatePresence mode="wait">
-                                            <motion.div
+                                            <m.div
                                                 key={misCarousel.active}
                                                 className="mis-slide"
                                                 initial={{ opacity: 0, scale: 0.96 }}
@@ -228,7 +228,7 @@ const WhyTechfit: React.FC = () => {
                                                 </div>
                                                 <h3>{misSlides[misCarousel.active].title}</h3>
                                                 <p>{misSlides[misCarousel.active].desc}</p>
-                                            </motion.div>
+                                            </m.div>
                                         </AnimatePresence>
                                     </div>
 

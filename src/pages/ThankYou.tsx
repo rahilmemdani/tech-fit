@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { CheckCircle2, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './ThankYou.css';
@@ -14,34 +14,34 @@ const ThankYou: React.FC = () => {
             </div>
 
             <div className="thankyou-content">
-                <motion.div
+                <m.div
                     className="thankyou-icon-wrap"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, type: "spring", damping: 15 }}
                 >
                     <CheckCircle2 size={64} strokeWidth={2} />
-                </motion.div>
+                </m.div>
 
-                <motion.h1
+                <m.h1
                     className="thankyou-title"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                 >
                     Thank You!
-                </motion.h1>
+                </m.h1>
 
-                <motion.p
+                <m.p
                     className="thankyou-message"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.55 }}
                 >
                     Your enquiry has been received successfully. Our team will get back to you shortly.
-                </motion.p>
+                </m.p>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7 }}
@@ -50,7 +50,7 @@ const ThankYou: React.FC = () => {
                         <ArrowLeft size={18} />
                         Back to Home
                     </Link>
-                </motion.div>
+                </m.div>
             </div>
         </div>
     );

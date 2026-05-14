@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import Layout from './components/Layout/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import Loader from './components/Loader';
@@ -18,25 +19,26 @@ const ThankYou = lazy(() => import('./pages/ThankYou.tsx'));
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <PageTransition />
-      <Layout>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/why-techfit" element={<WhyTechfit />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/technology" element={<Technology />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/thank-you" element={<ThankYou />} />
-          </Routes>
-        </Suspense>
-      </Layout>
-    </Router>
-
+    <LazyMotion features={domAnimation}>
+      <Router>
+        <ScrollToTop />
+        <PageTransition />
+        <Layout>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/why-techfit" element={<WhyTechfit />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/technology" element={<Technology />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/thank-you" element={<ThankYou />} />
+            </Routes>
+          </Suspense>
+        </Layout>
+      </Router>
+    </LazyMotion>
   );
 }
 

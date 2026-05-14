@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import {
     HeartPulse, Wrench, Zap, Eye, Target,
     ChevronLeft, ChevronRight, Dumbbell,
@@ -178,7 +178,7 @@ const About: React.FC = () => {
                                 </button>
                                 <div className="problem-carousel__stage">
                                     <AnimatePresence mode="wait">
-                                        <motion.div
+                                        <m.div
                                             key={problemCarousel.active}
                                             className="problem-card glass-card"
                                             initial={{ opacity: 0, scale: 0.96 }}
@@ -188,7 +188,7 @@ const About: React.FC = () => {
                                         >
                                             <div className="problem-card__icon">{problems[problemCarousel.active].icon}</div>
                                             <p>{problems[problemCarousel.active].text}</p>
-                                        </motion.div>
+                                        </m.div>
                                     </AnimatePresence>
                                 </div>
                                 <button className="problem-carousel__btn" onClick={problemCarousel.next} aria-label="Next">

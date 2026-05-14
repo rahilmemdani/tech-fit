@@ -8,14 +8,14 @@ interface LogoProps {
 }
 
 export const AntarikshLogo: React.FC<LogoProps> = ({ className }) => (
-    <img src={antarikshLogo} alt="Antariksh" className={className} style={{ objectFit: 'contain' }} />
+    <img src={antarikshLogo} alt="Antariksh" className={className} style={{ objectFit: 'contain' }} loading="lazy" width="96" height="96" />
 );
 
 export const GeeceeLogo: React.FC<LogoProps> = ({ className }) => (
-    <img src={geeceeLogo} alt="Geecee" className={className} style={{ objectFit: 'contain' }} />
+    <img src={geeceeLogo} alt="Geecee" className={className} style={{ objectFit: 'contain' }} loading="lazy" width="96" height="96" />
 );
 
 export const SrahejaLogo: React.FC<LogoProps> = ({ className }) => (
-    <img src={srahejaLogo} alt="S. Raheja" className={className} style={{ objectFit: 'contain' }} />
+    <img src={srahejaLogo} alt="S. Raheja" className={className} style={{ objectFit: 'contain' }} loading="lazy" width="242" height="96" />
 );
 

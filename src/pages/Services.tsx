@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
     ArrowRight, Dumbbell, Building2, HeartPulse,
@@ -174,7 +174,7 @@ const Services: React.FC = () => {
                         </div>
 
                         <AnimatePresence mode="wait">
-                            <motion.div
+                            <m.div
                                 key={activeService}
                                 className="svc-detail"
                                 initial={{ opacity: 0, scale: 0.96 }}
@@ -200,7 +200,7 @@ const Services: React.FC = () => {
                                         ))}
                                     </ul>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         </AnimatePresence>
 
                         {activeService === 2 && (
@@ -235,7 +235,7 @@ const Services: React.FC = () => {
                                         </button>
                                         <AnimatePresence initial={i === 0}>
                                             {isOpen && (
-                                                <motion.div
+                                                <m.div
                                                     className="svc-drawer__body"
                                                     initial={{ height: 0, opacity: 0 }}
                                                     animate={{ height: 'auto', opacity: 1 }}
@@ -255,7 +255,7 @@ const Services: React.FC = () => {
                                                             ))}
                                                         </ul>
                                                     </div>
-                                                </motion.div>
+                                                </m.div>
                                             )}
                                         </AnimatePresence>
                                     </div>
@@ -305,7 +305,7 @@ const Services: React.FC = () => {
                                 </button>
                                 <div className="svc-consult__stage">
                                     <AnimatePresence mode="wait">
-                                        <motion.div
+                                        <m.div
                                             key={consultCarousel.active}
                                             className="svc-consult__slide glass-card"
                                             initial={{ opacity: 0, scale: 0.96 }}
@@ -315,7 +315,7 @@ const Services: React.FC = () => {
                                         >
                                             <Lightbulb size={22} className="svc-consult__slide-icon" />
                                             <span>{consultPoints[consultCarousel.active]}</span>
-                                        </motion.div>
+                                        </m.div>
                                     </AnimatePresence>
                                 </div>
                                 <button className="svc-consult__btn" onClick={consultCarousel.next} aria-label="Next">
