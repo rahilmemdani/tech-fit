@@ -34,7 +34,7 @@ const PageTransition: React.FC = () => {
                     alt="Techfit Active"
                     className="page-transition__logo"
                     draggable={false}
-                    width="60"
+                    width="160"
                     height="60"
                 />
             </div>
