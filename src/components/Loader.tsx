@@ -12,6 +12,8 @@ const Loader: React.FC = () => {
                     alt="Techfit Active"
                     className="loader__logo"
                     draggable={false}
+                    width="60"
+                    height="60"
                 />
             </div>
             <div className="loader__bar-track">

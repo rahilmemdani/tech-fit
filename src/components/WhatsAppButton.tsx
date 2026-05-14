@@ -1,9 +1,25 @@
 import React from 'react';
 import './WhatsAppButton.css';
 
+// Google Ads gtag declaration
+declare function gtag(...args: unknown[]): void;
+
 const WhatsAppButton: React.FC = () => {
     const phoneNumber = '919326447321';
     const whatsappUrl = `https://wa.me/${phoneNumber}`;
+
+    const handleClick = () => {
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17963556801/P55ECNbCgoAcEMG_2PVC',
+                'value': 1.0,
+                'currency': 'INR'
+            });
+            console.log('[TechFit Active] Google Ads conversion fired (WhatsApp click)');
+        } else {
+            console.warn('[TechFit Active] gtag not loaded — WhatsApp conversion not fired');
+        }
+    };
 
     return (
         <a
@@ -12,6 +28,7 @@ const WhatsAppButton: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
+            onClick={handleClick}
         >
             <svg
                 viewBox="0 0 24 24"

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Handshake, BarChart3 } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal.tsx';
 import './Home.css';
-import heroBg from "../assets/hero-bg.png";
 import { AntarikshLogo, GeeceeLogo, SrahejaLogo } from '../components/ClientLogos.tsx';
 
 
@@ -64,7 +63,7 @@ const Home: React.FC = () => {
                 className="hero"
                 id="top"
                 style={{
-                    backgroundImage: `url(${heroBg})`,
+                    backgroundImage: `url(/hero-bg.png)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat"

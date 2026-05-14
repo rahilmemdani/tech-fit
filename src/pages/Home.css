@@ -151,6 +151,7 @@
     height: 1px;
     background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
     opacity: 0.15;
+    will-change: transform;
     animation: scan-down 6s linear infinite;
 }
 
@@ -168,11 +169,11 @@
 
 @keyframes scan-down {
     0% {
-        top: 0%;
+        transform: translateY(0);
     }
 
     100% {
-        top: 100%;
+        transform: translateY(80vh);
     }
 }
 

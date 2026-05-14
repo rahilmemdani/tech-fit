@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
         <div className="container nav-content">
           {/* Logo */}
           <Link to="/" className="nav-logo" aria-label="Techfit Active Home">
-            <img src={logo} alt="Techfit Active" className="nav-logo__img" />
+            <img src={logo} alt="Techfit Active" className="nav-logo__img" width="40" height="40" />
           </Link>
 
           {/* Desktop Nav */}
@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
       >
         <div className="mobile-drawer__header">
           <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
-            <img src={logo} alt="Techfit Active" className="nav-logo__img" />
+            <img src={logo} alt="Techfit Active" className="nav-logo__img" width="40" height="40" />
           </Link>
           <button className="nav-toggle" onClick={() => setIsOpen(false)} aria-label="Close menu">
             <X size={24} strokeWidth={2.5} />

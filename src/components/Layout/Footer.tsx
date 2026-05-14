@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
                     {/* Brand */}
                     <div className="footer__brand">
                         <Link to="/" className="nav-logo footer__logo">
-                            <img src={logo} alt="Techfit Active" className="nav-logo__img" />
+                            <img src={logo} alt="Techfit Active" className="nav-logo__img" width="40" height="40" />
                         </Link>
                         <p className="footer__desc">
                             Next-generation fitness & clubhouse management. We manage spaces like long-term assets.

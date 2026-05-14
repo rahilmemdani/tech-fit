@@ -34,6 +34,8 @@ const PageTransition: React.FC = () => {
                     alt="Techfit Active"
                     className="page-transition__logo"
                     draggable={false}
+                    width="60"
+                    height="60"
                 />
             </div>
             <div className="page-transition__bar-track">

@@ -5,6 +5,9 @@ import { Reveal, FadeIn } from '../components/Reveal';
 import { Phone, Mail, MapPin, Send, Facebook, Twitter, Youtube, Loader2 } from 'lucide-react';
 import './Contact.css';
 
+// Google Ads gtag declaration
+declare function gtag(...args: unknown[]): void;
+
 interface ContactFormData {
     firstName: string;
     lastName: string;
@@ -32,6 +35,18 @@ const Contact: React.FC = () => {
             });
 
             if (response.ok) {
+                // Fire Google Ads conversion on successful form submission
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17963556801/P55ECNbCgoAcEMG_2PVC',
+                        'value': 1.0,
+                        'currency': 'INR'
+                    });
+                    console.log('[TechFit Active] Google Ads conversion fired');
+                } else {
+                    console.warn('[TechFit Active] gtag not loaded — conversion not fired');
+                }
+
                 reset();
                 navigate('/thank-you');
             } else {
